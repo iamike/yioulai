@@ -26,7 +26,7 @@
   var $window = $(window),
       $document = $(document),
       location = window.location,
-	
+
       // Constants
       CROPPER_NAMESPACE = '.cropper',
       CROPPER_PREVIEW = 'preview' + CROPPER_NAMESPACE,
@@ -199,14 +199,14 @@
         $clone;
 	//console.log(url);
     if (!url) {
-		
+
       if ($this.is('img')) {
         if (!$this.attr('src')) {
           return;
         }
 
       	  url = $this.prop('src');
-		  	
+
       } else if ($this.is('canvas') && SUPPORT_CANVAS) {
        		 url = $this[0].toDataURL();
       }
@@ -412,12 +412,12 @@
 		if(canvas.width >  canvas.height){
 		 	canvas.height = cwidth;
 			canvas.width  =( cwidth/ cheight) * canvas.height;
-			
+
 		}
 		if(canvas.width < canvas.height){
 		 	canvas.width = cheight;
 			canvas.height  =(cheight / cwidth) * canvas.width;
-			
+
 		}
       canvas.oldLeft = canvas.left = (containerWidth - canvas.width) / 2;
       canvas.oldTop = canvas.top = (containerHeight - canvas.height) / 2;
@@ -440,10 +440,10 @@
           cropped = this.cropped && cropBox,
           minCanvasWidth,
           minCanvasHeight;
-	
+
       if (size) {
      //   minCanvasWidth = num(options.minCanvasWidth) || 0;
-		minCanvasWidth  = this.canvas.width	;	
+		minCanvasWidth  = this.canvas.width	;
      //   minCanvasHeight = num(options.minCanvasHeight) || 0;
 	 minCanvasHeight = this.canvas.height;
 		//console.log(minCanvasWidth);
@@ -531,18 +531,18 @@
         });
 
         aspectRatio = rotated.width / rotated.height;
-		
+
         if (aspectRatio !== canvas.aspectRatio) {
           canvas.left -= (rotated.width - canvas.width) / 2;
           canvas.top -= (rotated.height - canvas.height) / 2;
           canvas.width = rotated.width;
           canvas.height = rotated.height;
           canvas.aspectRatio = aspectRatio;
-		
+
           this.limitCanvas(true, false);
         }
       }
-	  
+
 
       if (canvas.width > canvas.maxWidth || canvas.width < canvas.minWidth) {
         canvas.left = canvas.oldLeft;
@@ -633,7 +633,7 @@
       }
 
       this.cropBox = cropBox;
-	 
+
       this.limitCropBox(true, true);
 
       // Initialize auto crop area
@@ -643,15 +643,15 @@
       // The width of auto crop area must large than "minWidth", and the height too. (#164)
      // cropBox.width = max(cropBox.minWidth, cropBox.width * autoCropArea);
      // cropBox.height = max(cropBox.minHeight, cropBox.height * autoCropArea);
-	  cropBox.width = ($(window).width() /640 ) * 470; 
+	  cropBox.width = ($(window).width() /640 ) * 470;
 	  cropBox.height = ($(window).width() /640 ) * 628;
-	  
-	  
-	  
+
+
+
       cropBox.oldLeft = cropBox.left = canvas.left + (canvas.width - cropBox.width) / 2;
       cropBox.oldTop = cropBox.top = canvas.top + (canvas.height - cropBox.height) / 2;
-	  
-	  console.log(cropBox);
+
+	  //console.log(cropBox);
 
       this.initialCropBox = $.extend({}, cropBox);
     },
@@ -716,7 +716,7 @@
           containerHeight = container.height,
           $cropBox = this.$cropBox,
           cropBox = this.cropBox;
-	
+
       if (cropBox.width > cropBox.maxWidth || cropBox.width < cropBox.minWidth) {
         cropBox.left = cropBox.oldLeft;
       }
@@ -736,7 +736,7 @@
       if (options.movable) {
         $cropBox.find('.cropper-face').data('drag', (cropBox.width === containerWidth && cropBox.height === containerHeight) ? 'move' : 'all');
       }
-	
+
       $cropBox.css({
         width: cropBox.width,
         height: cropBox.height,

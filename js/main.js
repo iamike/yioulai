@@ -1,88 +1,89 @@
-
-$(function () {
+$(function() {
 
   'use strict';
-  var imagewidth, imageheight; 
-  var console = window.console || { log: function () {} },
-      $alert = $('.docs-alert'),
-      $message = $alert.find('.message'),
-      showMessage = function (message, type) {
-        $message.text(message);
+  var imagewidth, imageheight;
+  var console = window.console || {
+      log: function() {}
+    },
+    $alert = $('.docs-alert'),
+    $message = $alert.find('.message'),
+    showMessage = function(message, type) {
+      $message.text(message);
 
-        if (type) {
-          $message.addClass(type);
-        }
+      if (type) {
+        $message.addClass(type);
+      }
 
-        $alert.fadeIn();
+      $alert.fadeIn();
 
-        setTimeout(function () {
-          $alert.fadeOut();
-        }, 3000);
-      };
+      setTimeout(function() {
+        $alert.fadeOut();
+      }, 3000);
+    };
 
   // Demo
   // -------------------------------------------------------------------------
 
-  (function () {
-	  var gwindow = $(window).width();
-	  var $download = $('#download');
-	   var $actions = $('.docs-actions');
+  (function() {
+    var gwindow = $(window).width();
+    var $download = $('#download');
+    var $actions = $('.docs-actions');
     var $image = $('#img-container > img'),
-        options = {
-           strict: true,
-          // responsive: false,
-          checkImageOrigin: false,
+      options = {
+        strict: true,
+        // responsive: false,
+        checkImageOrigin: false,
 
-          // modal: false,
-       guides: false,
-          // highlight: false,
-          //background: true,
+        // modal: false,
+        guides: false,
+        // highlight: false,
+        //background: true,
 
-         autoCrop: true,
-       
-          dragCrop: false,
-       		 movable: false,
-          resizable: false,
-          // rotatable: false,
-          // zoomable: false,
-          // touchDragZoom: false,
-          // mouseWheelZoom: false,
-	
-       	 minCanvasWidth: gwindow*0.45,
- 	   	  minCanvasHeight: gwindow*0.45,
-          minCropBoxWidth: 1,
-          minCropBoxHeight:1,
-      	   minContainerWidth: gwindow*0.45 ,
-          	minContainerHeight:  gwindow*0.45 ,
-		//autoCropArea: 1,
-          // build: null,
-          // built: null,
-          // dragstart: null,
-          // dragmove: null,
-          // dragend: null,
-          // zoomin: null,
-          // zoomout: null,
+        autoCrop: true,
 
-          aspectRatio:468/624,
-		  crop:function(data){
-				 var json = [
-                  '{"x":' + data.x,
-                  '"y":' + data.y,
-                  '"height":' + data.height,
-                  '"width":' + data.width,
-                  '"rotate":' + data.rotate + '}'
-                ].join();
+        dragCrop: false,
+        movable: false,
+        resizable: false,
+        // rotatable: false,
+        // zoomable: false,
+        // touchDragZoom: false,
+        // mouseWheelZoom: false,
 
-            	$("#avatar_data").val(json);
-			  //this.minCanvasWidth  = imagewidth;
-		
-			
-			 }
-        };
+        minCanvasWidth: gwindow * 0.45,
+        minCanvasHeight: gwindow * 0.45,
+        minCropBoxWidth: 1,
+        minCropBoxHeight: 1,
+        minContainerWidth: gwindow * 0.45,
+        minContainerHeight: gwindow * 0.45,
+        //autoCropArea: 1,
+        // build: null,
+        // built: null,
+        // dragstart: null,
+        // dragmove: null,
+        // dragend: null,
+        // zoomin: null,
+        // zoomout: null,
+
+        aspectRatio: 468 / 624,
+        crop: function(data) {
+          var json = [
+            '{"x":' + data.x,
+            '"y":' + data.y,
+            '"height":' + data.height,
+            '"width":' + data.width,
+            '"rotate":' + data.rotate + '}'
+          ].join();
+
+          $("#avatar_data").val(json);
+          //this.minCanvasWidth  = imagewidth;
+
+
+        }
+      };
 
     /*$image.on({
       'build.cropper': function (e) {
-		
+
         console.log(e.type);
       },
       'built.cropper': function (e) {
@@ -105,18 +106,18 @@ $(function () {
       }
     }).cropper(options);*/
     $image.cropper(options);
-		
+
 
     // Methods
-    $("#download").on('click', function () {
+    $("#download").on('click', function() {
       var data = $(this).data(),
-          $target,
-          result;
-		data.method = 'getCroppedCanvas';
-		if($("#IsUploadImage").val() =="0"){
-			alert('您还没上传哦！！');
-			return false;	
-		}
+        $target,
+        result;
+      data.method = 'getCroppedCanvas';
+      if ($("#IsUploadImage").val() == "0") {
+        alert('您还没上传哦！！');
+        return false;
+      }
       if (data.method) {
         data = $.extend({}, data); // Clone a new one
 
@@ -134,46 +135,46 @@ $(function () {
 
         result = $image.cropper(data.method, data.option);
         if (data.method === 'getCroppedCanvas') {
-			//	window.open(result.toDataURL("image/jpeg"));
-			// location.href = result.toDataURL("image/png");
-			
-				var imgSrc = result.toDataURL("image/png");
-				
-				var tempCanvas = $('<canvas width="640" height="684" style="display:none;">').appendTo(document.body)[0];
-				var tempCtx = tempCanvas.getContext("2d");
-				var scaleX =   result.width/ 470 ;
-				var scaleY =   result.height/ 628 ;
-			//  
-		
-			
-				//tempCtx.scale(scaleX, scaleY);
-				
-			
-				//return false
-			
-				var img = new Image();
-				img.onload = function() {
-					tempCtx.drawImage(img, 88, 27,470,628);
-					var img2 = new Image();
-					img2.src= "images/style"+styleValue+".png";
-					img2.onload = function(){
-						tempCtx.drawImage(img2, 0, 0,640,684);	
-						canvas640 = tempCanvas.toDataURL("image/JPEG");
-						
-				//	window.location.href = canvas640;
-					
-					$(".PageDiv3").hide();
-					$(".PageDiv4").show();
-					$("#CanvasResult").html("<img src='"+canvas640+"' width='100%'>");
-					
-					//document.body.removeChild(tempCanvas);
-						tempCanvas = img = tempCtx = null;
-					}
-					
-				};
-				img.src = imgSrc;
+          //	window.open(result.toDataURL("image/jpeg"));
+          // location.href = result.toDataURL("image/png");
+
+          var imgSrc = result.toDataURL("image/png");
+
+          var tempCanvas = $('<canvas width="640" height="684" style="display:none;">').appendTo(document.body)[0];
+          var tempCtx = tempCanvas.getContext("2d");
+          var scaleX = result.width / 470;
+          var scaleY = result.height / 628;
+          //
+
+
+          //tempCtx.scale(scaleX, scaleY);
+
+
+          //return false
+
+          var img = new Image();
+          img.onload = function() {
+            tempCtx.drawImage(img, 88, 27, 470, 628);
+            var img2 = new Image();
+            img2.src = "images/style" + styleValue + ".png";
+            img2.onload = function() {
+              tempCtx.drawImage(img2, 0, 0, 640, 684);
+              canvas640 = tempCanvas.toDataURL("image/JPEG");
+
+              //	window.location.href = canvas640;
+
+              $(".PageDiv3").hide();
+              $(".PageDiv4").show();
+              $("#CanvasResult").html("<img src='" + canvas640 + "' width='100%'>");
+
+              //document.body.removeChild(tempCanvas);
+              tempCanvas = img = tempCtx = null;
+            }
+
+          };
+          img.src = imgSrc;
         }
-		
+
 
 
         if ($.isPlainObject(result) && $target) {
@@ -185,7 +186,7 @@ $(function () {
         }
 
       }
-    }).on('keydown', function (e) {
+    }).on('keydown', function(e) {
 
       switch (e.which) {
         case 37:
@@ -214,73 +215,77 @@ $(function () {
 
     // Import image
     var $inputImage = $('#avatarInput'),
-        URL = window.URL || window.webkitURL,
-        blobURL;
-	//alert(URL == true)
-	//console.log(window.webkitURL);
+      URL = window.URL || window.webkitURL,
+      blobURL;
+    //alert(URL == true)
+    //console.log(window.webkitURL);
     if (URL) {
-		
+
       $inputImage.change(function() {
-    	$(".loading").show();
-		$("#loadingtips").html('载入中..');
-	
+        $(".loading").show();
+        $("#loadingtips").html('载入中..');
+
         var files = this.files,
-            file;
-			
+          file;
+
         if (files && files.length) {
           file = files[0];
-		  $("#IsUploadImage").val(1) 
+          $("#IsUploadImage").val(1)
           if (/^image\/\w+$/.test(file.type)) {
-         // blobURL = URL.createObjectURL(file);
-			
-		//	var imgObj = new Image();
-//			imgObj.src = blobURL; 
-//			imgObj.onload = function (){
-					
-				 EXIF.getData(file, function() {
-				 // var PixWidth = EXIF.getTag(this, 'PixelXDimension');
-				  //var PixHeight = EXIF.getTag(this, 'PixelYDimension');
-				//	alert(EXIF.getTag(this, 'PixelXDimension'));
-				//	alert(EXIF.getTag(this, 'PixelYDimension'));
-					var getOrientation = EXIF.getTag(this, 'Orientation');
+            // blobURL = URL.createObjectURL(file);
 
-					var mpImg = new MegaPixImage(file);
-					
-					var resCanvas2 = document.getElementById('resultCanvas2');
-				
-						 mpImg.render(resCanvas2, { maxWidth: 2000, maxHeight: 2000, orientation: getOrientation},function(){
-						
-								 $image.one('built.cropper', function () {
-									//URL.revokeObjectURL(blobURL); // Revoke when load complete
-							}).cropper('reset', true).cropper('replace', resCanvas2.toDataURL("image/png"));
-							 });	
-						
-   					
-		
-						
-					 //console.log(resCanvas2.toDataURL('JPEG'));
-					 	imagewidth = resCanvas2.width;
-						imageheight = resCanvas2.height;
-						
-					
-						
-				});
-				
-			
-			//	}
+            //	var imgObj = new Image();
+            //			imgObj.src = blobURL;
+            //			imgObj.onload = function (){
+
+            EXIF.getData(file, function() {
+              // var PixWidth = EXIF.getTag(this, 'PixelXDimension');
+              //var PixHeight = EXIF.getTag(this, 'PixelYDimension');
+              //	alert(EXIF.getTag(this, 'PixelXDimension'));
+              //	alert(EXIF.getTag(this, 'PixelYDimension'));
+              var getOrientation = EXIF.getTag(this, 'Orientation');
+
+              var mpImg = new MegaPixImage(file);
+
+              var resCanvas2 = document.getElementById('resultCanvas2');
+
+              mpImg.render(resCanvas2, {
+                maxWidth: 2000,
+                maxHeight: 2000,
+                orientation: getOrientation
+              }, function() {
+
+                $image.one('built.cropper', function() {
+                  //URL.revokeObjectURL(blobURL); // Revoke when load complete
+                }).cropper('reset', true).cropper('replace', resCanvas2.toDataURL("image/png"));
+              });
+
+
+
+
+              //console.log(resCanvas2.toDataURL('JPEG'));
+              imagewidth = resCanvas2.width;
+              imageheight = resCanvas2.height;
+
+
+
+            });
+
+
+            //	}
           } else {
-			  	$(".loading").hide();
-				alert('请正确选择图片哦！！');
+            $(".loading").hide();
+            alert('请正确选择图片哦！！');
           }
         }
       });
- 		 } else {
-     		 $inputImage.parent().remove();
+    } else {
+      $inputImage.parent().remove();
     }
 
 
     // Options
-    $('.docs-options :checkbox').on('change', function () {
+    $('.docs-options :checkbox').on('change', function() {
       var $this = $(this);
 
       options[$this.val()] = $this.prop('checked');
@@ -289,9 +294,8 @@ $(function () {
 
 
     // Tooltips
-  //  $('[data-toggle="tooltip"]').tooltip();
+    //  $('[data-toggle="tooltip"]').tooltip();
 
   }());
 
 });
-
