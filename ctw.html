@@ -13,7 +13,7 @@
   <div class="container">
     <div class="page" id="page2">
       <div id="bg_video1" class="bg_video">
-        <video webkit-playsinline="true" preload controls id="video" autoplay="auto">
+        <video webkit-playsinline="true" preload controls id="video" >
           <source src="video/37622100.mp4" type="video/mp4" />
         </video>
       </div>
@@ -48,6 +48,15 @@
       language: (navigator.browserLanguage || navigator.language).toLowerCase()
     };
     video = document.getElementById("video");
+    function is_iOS7() {
+      // 判断是否 iPhone 或者 iPod
+      if ((navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i))) {
+        // 判断系统版本号是否大于 4
+        return Boolean(navigator.userAgent.match(/OS [7]_\d[_\d]* like Mac OS X/i));
+      } else {
+        return false;
+      }
+    }
 
     if (is_iOS7()) {
       video.addEventListener("webkitfullscreenchange", function(e) {
@@ -71,20 +80,11 @@
         "min-height": "100%"
       });
     }
-    function is_iOS7() {
-      // 判断是否 iPhone 或者 iPod
-      if ((navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i))) {
-        // 判断系统版本号是否大于 4
-        return Boolean(navigator.userAgent.match(/OS [7]_\d[_\d]* like Mac OS X/i));
-      } else {
-        return false;
-      }
-    }
 
-    function playVideo(a) {
-      eval(a + ".play()");
-    }
+    setTimeout(function(){
 
+      video.play();
+    },1000);
   </script>
 
 </body>
