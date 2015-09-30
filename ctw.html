@@ -1,234 +1,94 @@
-
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>video play in webview</title>
-    <script type="text/javascript" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/js/script.js"></script>
-    <link href="style/style.css" rel="stylesheet" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>video play in webview</title>
+  <script type="text/javascript" src="js/script.js"></script>
+  <link href="style/style.css" rel="stylesheet" />
 </head>
+
 <body>
-<div id="hidden" class="hidden">
+  <div id="hidden" class="hidden">
     <video src="video/37622100.mp4" webkit-playsinline="true" class="video hidden" preload="auto"></video>
-    <input id="photo" name="photo" type="file" accept="image/*;capture=camera" class="hidden" />
-    <input id="pic" name="pic" type="hidden" />
-    <img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/loading.jpg" />
-    <img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/uploading.png" />
-    <canvas id="mix_canvas"></canvas>
-    <canvas id="mycanvas"></canvas>
-</div>
-<div class="container">
-
+  </div>
+  <div class="container">
     <div class="page" id="page2">
-        <div id="bg_video1" class="bg_video">
-            <video webkit-playsinline="true" preload controls id="video">
-                <source src="video/37622100.mp4" type="video/mp4" />
-            </video>
-        </div>
+      <div id="bg_video1" class="bg_video">
+        <video webkit-playsinline="true" preload controls id="video">
+          <source src="video/37622100.mp4" type="video/mp4" />
+        </video>
       </div>
-</div>
+    </div>
+  </div>
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
 
-    <script type="text/javascript">
-    document.ontouchmove = function(e){ e.preventDefault(); };
-    var browser={
-        versions:function(){
-            var u = navigator.userAgent, app = navigator.appVersion;
-            return {
-                trident: u.indexOf('Trident') > -1, //IE内核
-                presto: u.indexOf('Presto') > -1, //opera内核
-                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
-                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,//火狐内核
-                mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
-                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
-                iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器
-                iPad: u.indexOf('iPad') > -1, //是否iPad
-                webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
-                weixin: u.indexOf('MicroMessenger') > -1, //是否微信 （2015-01-22新增）
-                qq: u.match(/\sQQ/i) == " qq" //是否QQ
-            };
-        }(),
-        language:(navigator.browserLanguage || navigator.language).toLowerCase()
+  <script type="text/javascript">
+    document.ontouchmove = function(e) {
+      e.preventDefault();
     };
-    video=document.getElementById("video");
+    var browser = {
+      versions: function() {
+        var u = navigator.userAgent,
+          app = navigator.appVersion;
+        return {
+          trident: u.indexOf('Trident') > -1, //IE内核
+          presto: u.indexOf('Presto') > -1, //opera内核
+          webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+          gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+          mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+          ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+          android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+          iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+          iPad: u.indexOf('iPad') > -1, //是否iPad
+          webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+          weixin: u.indexOf('MicroMessenger') > -1, //是否微信 （2015-01-22新增）
+          qq: u.match(/\sQQ/i) == " qq" //是否QQ
+        };
+      }(),
+      language: (navigator.browserLanguage || navigator.language).toLowerCase()
+    };
+    video = document.getElementById("video");
 
-    if(is_iOS7()){
-        $("#page2").css("background","url('http://77fybz.com1.z0.glb.clouddn.com/ios7-bg.jpg')");
-        video.addEventListener('play',function(){
-            $("#upload_box_a").css("z-index",-1);
-        });
-        video.addEventListener('ended',function(){
-            $("#video").remove();
-            $("#upload_box_a").css("z-index",1);
-        });
-        video.addEventListener("webkitfullscreenchange",function(e){
-            if(!document.webkitIsFullScreen);
-        }, false);
+    if (is_iOS7()) {
+      video.addEventListener("webkitfullscreenchange", function(e) {
+        if (!document.webkitIsFullScreen);
+      }, false);
     }
-    if(!browser.versions.android){
-        video.addEventListener("loadstart",function(){
-            this.play();
-            setTimeout(function(){
-                video.pause();
-            },200);
-        },false);
-
+    if (!browser.versions.android) {
+      video.addEventListener("loadstart", function() {
+        this.play();
+        setTimeout(function() {
+          video.pause();
+        }, 200);
+      }, false);
     }
-    if(browser.versions.android){
-        video.addEventListener("ended",function(){
-            $("#video").remove();
-        },false);
-        guide_video.addEventListener("ended",function(){
-            $("#guide_video").remove();
-        },false);
-        $(".bg_video video").css({"width": "100%","min-height": "100%"});
+    if (browser.versions.android) {
+      video.addEventListener("ended", function() {
+        $("#video").remove();
+      }, false);
+      $(".bg_video video").css({
+        "width": "100%",
+        "min-height": "100%"
+      });
     }
-
-
-
-    page_index=0;
-    share_pic="";
-    function toPage(a){
-        page_index=a-1;
-        hei=$(window)[0].innerHeight;
-        $('.page').css({"transition-delay": "0s", "transition-duration": "0s","transform":"translate3d(0px,"+(-hei*(a-1))+"px,0px)"});
-    }
-    function heldOn(){
-        $("#upload_box_a").removeClass("hidden");
-        playVideo("video");
-        toPage(2);
-        phone_sound.pause();
-    }
-    function toExit(){
-        window.location.href="http://cms.m.yhd.com/sale/175118?tracker_u=10586512200";
-    }
-
-
     function is_iOS7() {
-        // 判断是否 iPhone 或者 iPod
-        if((navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i))) {
-            // 判断系统版本号是否大于 4
-            return Boolean(navigator.userAgent.match(/OS [7]_\d[_\d]* like Mac OS X/i));
-        } else {
-            return false;
-        }
-    }
-    var choose_status=true;
-    function chooseType(){
-        toPage(5);
-        if(choose_status){
-            for(var i=1;i<11;i++){
-                $("#bottle_text"+i).animate({opacity:1},(500*(i>5?i:5)));
-                /*if(i==10){
-                    setTimeout(function(){
-                        $("#bottle_box").removeClass("hidden").addClass("productScale");
-                        $("#bottle_touch").removeClass("hidden");
-                    },2500);
-                }*/
-            }
-            choose_status=false;
-        }
-        $("#upload_box_a").removeClass("hidden");
-        $(".beautyimg,.img_box,.upload_box_cover").addClass("hidden");
-        $('#bottle_box').after($('#bottle_box').removeClass('productScale').clone(true)).remove();
-        $("#beautyimg"+video_index).removeClass("hidden");
-
-        mix_img($("#video_img"+video_index).attr("src"),$("#pic").val());
-    }
-    function beautify(){
-        $("#bottle_box").addClass("productScale");
-        $(".img_box").removeClass("hidden");
-        setTimeout(function(){
-            $(".upload_box_cover").removeClass("hidden");
-            setTimeout(function(){
-                $(".video,.img_text,.img_box").addClass("hidden");
-                $("#video"+video_index+",#img_text"+video_index).removeClass("hidden");
-                playVideo("video"+video_index);
-                toPage(6);
-            },2000);
-        },700)
-    }
-    function alert_container(a){
-        $(".alert_container").css("z-index",99).removeClass("hidden");
-        $(".alert_box").addClass("hidden");
-        $(a).removeClass("hidden");
+      // 判断是否 iPhone 或者 iPod
+      if ((navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i))) {
+        // 判断系统版本号是否大于 4
+        return Boolean(navigator.userAgent.match(/OS [7]_\d[_\d]* like Mac OS X/i));
+      } else {
+        return false;
+      }
     }
 
-    num=1;
-    function loading(){
-        if(num==7){
-            $("#loading_text_point").html("");
-            num=1;
-        }
-        $("#loading_text_point").append(".");
-        num++;
-    }
-    function playVideo(a){
-        eval(a+".play()");
+    function playVideo(a) {
+      eval(a + ".play()");
     }
 
-    var loading_num=setInterval(loading,500);
-    window.onload=function(){
-        /*page_start();*/
-        $(window).resize(function() {
-            hei=$(window)[0].innerHeight;
-            $('.page').css({"transition-delay": "0s", "transition-duration": "0s","transform":"translate3d(0px,"+(-hei*(page_index))+"px,0px)"});
-        });
+  </script>
 
-        $("#upload_box_a").on("click",function(){
-            $('#photo').click();
-        });
-    };
-    function state1(){
-        $("#img7").removeClass("r2").addClass("r1");
-        setTimeout(state2,90);
-    }
-    function state2(){
-        $("#img7").removeClass("r1").addClass("r2");
-        setTimeout(state1,90);
-    }
-
-
-</script>
-<script type="text/javascript" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/js/touch-0.2.14.min.js"></script>
-<script type="text/javascript">
-    touch.on('.gallery_box', 'swiperight swipeleft', function(ev){
-        //alert(ev.type);
-        ev.preventDefault();
-        switch(ev.type){
-            case 'swiperight':prev();break;
-            case 'swipeleft':next();break;
-        }
-    });
-</script>
-<script type="text/javascript">
-        function share(){
-            var param = {
-                url:'http://rejoice-jas-wap.app.social-touch.com',
-                type:'3',
-                count:'1', /**是否显示分享数，1显示(可选)*/
-                appkey:'', /**您申请的应用appkey,显示分享来源(可选)*/
-                title:'#触发摸摸嗒#天了噜！我居然接到了陈伟霆爱的摸摸嗒视频聊天邀请，看得我脸红心跳！@飘柔Rejoice', /**分享的文字内容(可选，默认为所在页面的title)*/
-                pic: share_pic, /**分享图片的路径(可选)*/
-                ralateUid:'', /**关联用户的UID，分享微博会@该用户(可选)*/
-                language:'zh_cn', /**设置语言，zh_cn|zh_tw(可选)*/
-                rnd:new Date().valueOf()
-            };
-            var temp = [];
-            for( var p in param ){
-                temp.push(p + '=' + encodeURIComponent( param[p] || '' ) )
-            }
-            var shareUri = 'http://v.t.sina.com.cn/share/share.php?' + temp.join('&');
-            window.open(shareUri,'newwindow','height=450,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no');
-        }
-        $("#button6_2").click(function(){
-            share();
-        });
-    </script>
-    <div class="hidden">
-    <script src="http://s4.cnzz.com/stat.php?id=1256013586&web_id=1256013586" language="JavaScript"></script>
-</div>
 </body>
+
 </html>
