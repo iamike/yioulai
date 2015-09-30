@@ -27,36 +27,44 @@ var symbols = {
     content: {
             dom: [
             {
-                id: 'Symbol_1',
-                type: 'rect',
-                rect: ['-320', '-15','auto','auto','auto', 'auto']
+                id: '_37622100',
+                type: 'video',
+                tag: 'video',
+                rect: ['-322px', '0px','963px','480px','auto', 'auto'],
+                autoplay: 'autoplay',
+                loop: 'loop',
+                source: ['video/37622100.mp4'],
+                preload: 'auto'
             },
             {
                 id: 'brand5',
                 type: 'image',
-                rect: ['24px', '14px','289px','43px','auto', 'auto'],
+                rect: ['15px', '12px','289px','43px','auto', 'auto'],
                 fill: ["rgba(0,0,0,0)",im+"brand.png",'0px','0px']
             }],
             symbolInstances: [
-            {
-                id: 'Symbol_1',
-                symbolName: 'Symbol_1'
-            }
+
             ]
         },
     states: {
         "Base State": {
             "${_Stage}": [
                 ["color", "background-color", 'rgba(255,255,255,1)'],
-                ["style", "width", '320px'],
+                ["style", "overflow", 'hidden'],
                 ["style", "height", '480px'],
-                ["style", "overflow", 'hidden']
+                ["style", "width", '320px']
             ],
             "${_brand5}": [
-                ["style", "top", '14px'],
                 ["style", "height", '43px'],
-                ["style", "left", '24px'],
+                ["style", "top", '12px'],
+                ["style", "left", '15px'],
                 ["style", "width", '289px']
+            ],
+            "${__37622100}": [
+                ["style", "top", '0px'],
+                ["style", "height", '480px'],
+                ["style", "left", '-322px'],
+                ["style", "width", '963px']
             ]
         }
     },
@@ -84,13 +92,13 @@ var symbols = {
     content: {
             dom: [
                 {
-                    autoplay: 'autoplay',
+                    preload: 'auto',
                     rect: ['0px', '0px', '960px', '510px', 'auto', 'auto'],
                     source: ['video/37622100.mp4'],
-                    preload: 'auto',
+                    autoplay: 'autoplay',
                     id: '_37622100',
-                    loop: 'loop',
                     type: 'video',
+                    loop: 'loop',
                     tag: 'video'
                 }
             ],
@@ -99,14 +107,14 @@ var symbols = {
         },
     states: {
         "Base State": {
-            "${symbolSelector}": [
+            "${__37622100}": [
+                ["style", "top", '0px'],
                 ["style", "height", '510px'],
+                ["style", "left", '0px'],
                 ["style", "width", '960px']
             ],
-            "${__37622100}": [
+            "${symbolSelector}": [
                 ["style", "height", '510px'],
-                ["style", "top", '0px'],
-                ["style", "left", '0px'],
                 ["style", "width", '960px']
             ]
         }

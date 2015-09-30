@@ -3,7 +3,7 @@
 <html>
 <head lang="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>陈伟霆约你触发摸摸嗒！约吗？！</title>
+    <title>video play in webview</title>
     <script type="text/javascript" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/js/script.js"></script>
     <link href="style/style.css" rel="stylesheet" />
 </head>
@@ -17,178 +17,19 @@
     <img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/uploading.png" />
     <canvas id="mix_canvas"></canvas>
     <canvas id="mycanvas"></canvas>
-    <audio id="sake_sound" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/sound/sake_sound.mp3" preload class="hidden"></audio>
-    <input type="hidden" name="pr_id" id="pr_id" />
 </div>
 <div class="container">
-    <div class="page" id="loading">
-        <div id="header_img"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/header.png" /></div>
-        <div id="loading_text">
-            正在建立连接<span id="loading_text_point"></span>
-        </div>
-    </div>
-    <div class="page" id="page1">
-        <div class="header_photo"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/header.png" /></div>
-        <div class="button" id="button1_1" onclick="toExit()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/button1_1.png" /></div>
-        <div class="button" id="button1_2" onclick="heldOn()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/button1_2.png" /></div>
-    </div>
+
     <div class="page" id="page2">
         <div id="bg_video1" class="bg_video">
             <video webkit-playsinline="true" preload controls id="video">
                 <source src="video/37622100.mp4" type="video/mp4" />
             </video>
         </div>
-        <!--<div id="upload_box" class="upload_box">
-            <img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/upload.png">
-        </div>
-        <div class="button close" id="button2_1" onclick="toExit()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/close.png"></div>-->
-    </div>
-    <div class="page" id="page3">
-        <div class="bg_video">
-            <video src="http://77fybz.com1.z0.glb.clouddn.com/wap-select-2.mp4" webkit-playsinline="true" preload controls id="guide_video"></video>
-        </div>
-        <!--<div id="upload_box3" class="upload_box">
-            <img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/upload.png">
-        </div>
-        <div class="button close" onclick="toExit()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/close.png"></div>-->
-    </div>
-    <div class="page" id="page4">
-        <div class="gallery_stage">
-            <div class="gallery_box">
-                <div class="gallery_content gallery_content1">
-                        <div id="gallery_text1" class="gallery_text"><img class="hidden" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/uploads/Video/55d3050094d07.png" /></div>
-                        <img class="gallery_img" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/uploads/Video/55d3050094923.jpg" />
-                        <div class="arrow_left hidden" id="arrow_left1" onclick="prev()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/arrow_left.png" /></div>
-                        <div class="arrow_right hidden" id="arrow_right1" onclick="next()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/arrow_right.png" /></div>
-                        <div class="button3_1 hidden" id="button3_1_1"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/button3_1.jpg" /></div>
-                        <div class="button button3_1_click" onclick="chooseType()"></div>
-                    </div><div class="gallery_content gallery_content2">
-                        <div id="gallery_text2" class="gallery_text"><img class="hidden" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/uploads/Video/55d3056a7717b.png" /></div>
-                        <img class="gallery_img" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/uploads/Video/55d3056a76d6a.jpg" />
-                        <div class="arrow_left hidden" id="arrow_left2" onclick="prev()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/arrow_left.png" /></div>
-                        <div class="arrow_right hidden" id="arrow_right2" onclick="next()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/arrow_right.png" /></div>
-                        <div class="button3_1 hidden" id="button3_1_2"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/button3_1.jpg" /></div>
-                        <div class="button button3_1_click" onclick="chooseType()"></div>
-                    </div><div class="gallery_content gallery_content3">
-                        <div id="gallery_text3" class="gallery_text"><img class="hidden" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/uploads/Video/55d3059f59244.png" /></div>
-                        <img class="gallery_img" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/uploads/Video/55d3059f58e10.jpg" />
-                        <div class="arrow_left hidden" id="arrow_left3" onclick="prev()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/arrow_left.png" /></div>
-                        <div class="arrow_right hidden" id="arrow_right3" onclick="next()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/arrow_right.png" /></div>
-                        <div class="button3_1 hidden" id="button3_1_3"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/button3_1.jpg" /></div>
-                        <div class="button button3_1_click" onclick="chooseType()"></div>
-                    </div><div class="gallery_content gallery_content4">
-                        <div id="gallery_text4" class="gallery_text"><img class="" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/uploads/Video/55d3060c6a2d9.png" /></div>
-                        <img class="gallery_img" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/uploads/Video/55d3060c69e84.jpg" />
-                        <div class="arrow_left hidden" id="arrow_left4" onclick="prev()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/arrow_left.png" /></div>
-                        <div class="arrow_right hidden" id="arrow_right4" onclick="next()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/arrow_right.png" /></div>
-                        <div class="button3_1" id="button3_1_4"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/button3_1.jpg" /></div>
-                        <div class="button button3_1_click" onclick="chooseType()"></div>
-                    </div>                <!--<div class="gallery_content gallery_content1">
-                    <div id="gallery_text1" class="gallery_text"><img class="hidden" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/type1_text.png" /></div>
-                    <img class="gallery_img" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/type1_img.jpg" />
-                    <div class="arrow_left hidden" id="arrow_left1" onclick="prev()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/arrow_left.png" /></div>
-                    <div class="arrow_right hidden" id="arrow_right1" onclick="next()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/arrow_right.png" /></div>
-                    <div class="button3_1 hidden" id="button3_1_1"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/button3_1.jpg" /></div>
-                    <div class="button button3_1_click" onclick="chooseType()"></div>
-                </div>
-                <div class="gallery_content gallery_content2">
-                    <div id="gallery_text2" class="gallery_text"><img class="hidden" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/type2_text.png" /></div>
-                    <img class="gallery_img" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/type2_img.jpg" />
-                    <div class="arrow_left hidden" id="arrow_left2" onclick="prev()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/arrow_left.png" /></div>
-                    <div class="arrow_right hidden" id="arrow_right2" onclick="next()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/arrow_right.png" /></div>
-                    <div class="button3_1 hidden" id="button3_1_2"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/button3_1.jpg" /></div>
-                    <div class="button button3_1_click" onclick="chooseType()"></div>
-                </div>
-                <div class="gallery_content gallery_content3">
-                    <div id="gallery_text3" class="gallery_text"><img class="hidden" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/type3_text.png" /></div>
-                    <img class="gallery_img" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/type3_img.jpg" />
-                    <div class="arrow_left hidden" id="arrow_left3" onclick="prev()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/arrow_left.png" /></div>
-                    <div class="arrow_right hidden" id="arrow_right3" onclick="next()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/arrow_right.png" /></div>
-                    <div class="button3_1 hidden" id="button3_1_3"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/button3_1.jpg" /></div>
-                    <div class="button button3_1_click" onclick="chooseType()"></div>
-                </div>
-                <div class="gallery_content gallery_content4">
-                    <div id="gallery_text4" class="gallery_text"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/type4_text.png" /></div>
-                    <img class="gallery_img" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/type4_img.jpg" />
-                    <div class="arrow_left" id="arrow_left4" onclick="prev()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/arrow_left.png" /></div>
-                    <div class="arrow_right" id="arrow_right4" onclick="next()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/arrow_right.png" /></div>
-                    <div class="button3_1" id="button3_1_4"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/button3_1.jpg" /></div>
-                    <div class="button button3_1_click" onclick="chooseType()"></div>
-                </div>-->
-            </div>
-        </div>
-    </div>
-    <div class="page" id="page5">
-        <div id="page4_bg">
-            <img id="beautyimg1" class="beautyimg" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1//Public/loads/wap_bdzc_mh_640x1136.jpg"><img id="beautyimg2" class="beautyimg" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1//Public/loads/wap_dst_mh_640x1136.jpg"><img id="beautyimg3" class="beautyimg" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1//Public/loads/wap_nn_mh_640x1136.jpg"><img id="beautyimg4" class="beautyimg" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1//Public/loads/wap_yg_mh_640x1136.jpg">        </div>
-        <div class="bottle_text_box">
-            <div class="bottle_text" id="bottle_text1"></div>
-            <div class="bottle_text" id="bottle_text2"></div>
-            <div class="bottle_text" id="bottle_text3"></div>
-            <div class="bottle_text" id="bottle_text4"></div>
-            <div class="bottle_text" id="bottle_text5"></div>
-            <div class="bottle_text" id="bottle_text6"></div>
-            <div class="bottle_text" id="bottle_text7"></div>
-            <div class="bottle_text" id="bottle_text8"></div>
-            <div class="bottle_text" id="bottle_text9"></div>
-            <div class="bottle_text" id="bottle_text10"></div>
-        </div>
-        <div id="bottle_box" onclick="beautify()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/bottle.png" /></div>
-        <div id="bottle_touch"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/bottle_touch.gif" /></div>
-        <!--<div class="upload_box" id="upload_box4"><div class="upload_box upload_box_cover hidden"></div></div>
-        <div class="img_box hidden"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/img_box.png"></div>
-        <div class="button close" id="button4_1" onclick="toExit()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/close.png" /></div>-->
-    </div>
-    <div class="page" id="page6">
-        <div class="bg_video">
-            <video src="http://77fybz.com1.z0.glb.clouddn.com/wap-bdzc-2.mp4" webkit-playsinline="true" class="video hidden" controls="controls" id="video1"></video><video src="http://77fybz.com1.z0.glb.clouddn.com/wap-dst-1.mp4" webkit-playsinline="true" class="video hidden" controls="controls" id="video2"></video><video src="http://77fybz.com1.z0.glb.clouddn.com/wap-nn-1.mp4" webkit-playsinline="true" class="video hidden" controls="controls" id="video3"></video><video src="http://77fybz.com1.z0.glb.clouddn.com/wap-yg-1.mp4" webkit-playsinline="true" class="video hidden" controls="controls" id="video4"></video>        </div>
-        <div class="img_text hidden" id="img_text1"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1//Public/loads/wap_bdzc_v_word.png"></div><div class="img_text hidden" id="img_text2"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1//Public/loads/wap_yg_v_word.png"></div><div class="img_text hidden" id="img_text3"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1//Public/loads/wap_nn_v_word.png"></div><div class="img_text hidden" id="img_text4"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1//Public/loads/wap_dst_v_word-2.png"></div>        <!--<div class="upload_box" id="upload_box5"><div class="upload_box upload_box_cover"></div></div>
-        <div class="button close" id="button5_1" onclick="toExit()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/close.png" /></div>-->
-    </div>
-    <div class="page" id="page7">
-        <div class="video_img_box">
-            <img class="video_img hidden" id="video_img1" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1//Public/loads/wap_bdzc_hc_464x665.jpg" /><img class="video_img hidden" id="video_img2" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1//Public/loads/wap_dst_hc_464x665.jpg" /><img class="video_img hidden" id="video_img3" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1//Public/loads/wap_nn_hc_464x665.jpg" /><img class="video_img hidden" id="video_img4" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1//Public/loads/wap_yg_hc_464x665.jpg" />            <!--<img id="video_img" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/video_img1.jpg">-->
-            <div class="logo"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/logo.png"></div>
-        </div>
-        <div class="video_text">
-            <img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/video_text.png">
-        </div>
-        <div class="upload_box" id="upload_box6"><div class="upload_box_cover"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/upload_cover.png" /></div></div>
-        <div class="button" id="button6_1"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/button6_1.jpg"></div>
-        <div class="button" id="button6_2"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/button6_2.jpg"></div>
-    </div>
-    <div class="page" id="page8">
-        <div id="img7"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/img7.png" /></div>
-    </div>
-    <div class="page" id="page9">
-        <div id="product_box"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/product.png" /></div>
-        <div id="text8_1"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/text8_1.png" /></div>
-        <div id="text8_2">飘柔精纯焗油系列洗发露</div>
-        <div id="text8_3"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/text8_3.png" /></div>
-        <div class="button" id="receive" onclick="alert_container('#form');"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/button8_1.jpg"></div>
-    </div>
-    <div class="page" id="page10">
-        <div class="button" id="replay"></div>
-        <div class="button" id="button9_1" onclick="toExit()"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/button9_1.png" /></div>
-    </div>
-    <div class="upload_box hidden" id="upload_box_a"><img id="upload_img" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/upload.png"><div class="upload_box upload_box_cover hidden"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/upload_cover.png" /></div></div>
-    <div class="img_box hidden"><img src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/img_box.png"></div>
+      </div>
 </div>
-<div class="alert_container hidden">
-    <div class="alert_box hidden" id="success">
-        <div class="button" id="back_button"></div>
-    </div>
-    <div class="alert_box hidden" id="form">
-        <input type="text" id="name" />
-        <input type="text" id="phone" />
-        <input type="text" id="address" />
-        <div id="return_result"></div>
-        <div class="button" id="submit_button"></div>
-    </div>
-</div>
-<div class="hidden" id="share"></div>
-<script type="text/javascript" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/js/jquery.min.js"></script>
-<script type="text/javascript" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/js/shake.js"></script>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript">
         video1 = document.getElementById("video1");
         video1.addEventListener("ended",function(){
@@ -200,40 +41,8 @@
             $(".video_img,#upload_box_a").addClass("hidden");
             $("#video_img"+video_index).removeClass("hidden");
         },false);
-    </script><script type="text/javascript">
-        video2 = document.getElementById("video2");
-        video2.addEventListener("ended",function(){
-            toPage(7);
-            if(browser.versions.android){
-                $("#video2").addClass("hidden");
-                this.currentTime = 0;
-            }
-            $(".video_img,#upload_box_a").addClass("hidden");
-            $("#video_img"+video_index).removeClass("hidden");
-        },false);
-    </script><script type="text/javascript">
-        video3 = document.getElementById("video3");
-        video3.addEventListener("ended",function(){
-            toPage(7);
-            if(browser.versions.android){
-                $("#video3").addClass("hidden");
-                this.currentTime = 0;
-            }
-            $(".video_img,#upload_box_a").addClass("hidden");
-            $("#video_img"+video_index).removeClass("hidden");
-        },false);
-    </script><script type="text/javascript">
-        video4 = document.getElementById("video4");
-        video4.addEventListener("ended",function(){
-            toPage(7);
-            if(browser.versions.android){
-                $("#video4").addClass("hidden");
-                this.currentTime = 0;
-            }
-            $(".video_img,#upload_box_a").addClass("hidden");
-            $("#video_img"+video_index).removeClass("hidden");
-        },false);
-    </script><script type="text/javascript">
+    </script>
+    <script type="text/javascript">
     document.ontouchmove = function(e){ e.preventDefault(); };
     var browser={
         versions:function(){
@@ -504,136 +313,6 @@
         toPage(4);
     });
 
-</script>
-<script type="text/javascript" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/js/3d_gallery_4p.js"></script>
-<script type="text/javascript">
-    // 渲染
-    function render(src){
-        // 创建一个 Image 对象
-        var image = new Image();
-        var image_cover = new Image();
-        image_cover.onload = function (){
-            var canvas = document.getElementById("mycanvas");
-            var ctx = canvas.getContext("2d");
-            image_cover.width=202;
-            image_cover.height=253;
-            ctx.drawImage(image_cover, 0, 0, image_cover.width, image_cover.height);
-            $("#pic").val(canvas.toDataURL("image/png"));
-        };
-        // 绑定 load 事件处理器，加载完成后执行
-        image.onload = function(){
-            var canvas = document.getElementById("mycanvas");
-            var ctx = canvas.getContext("2d");
-            // canvas清屏
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            // 重置canvas宽高
-            canvas.width = 202;
-            if(image.width > 202) {
-                // 宽度等比例缩放 *=
-                image.height *= 202 / image.width;
-                image.width = 202;
-            }
-            if(image.height<253){
-                canvas.height = image.height;
-            }else{
-                canvas.height = 253;
-            }
-            // 将图像绘制到canvas上
-            ctx.drawImage(image, 0, 0, image.width, image.height);
-            // !!! 注意，image 没有加入到 dom之中
-            image_cover.src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/upload_cover.png";
-        };
-        // 设置src属性，浏览器会自动加载。
-        // 记住必须先绑定事件，才能设置src属性，否则会出同步问题。
-        image.src = src;
-    }
-    function mix_img(src1,src2){
-        var image1 = new Image();
-        var image2 = new Image();
-        var logo = new Image();
-        var bg = new Image();
-        bg.onload=function(){
-            var canvas = document.getElementById("mix_canvas");
-            bg.width = 511;
-            bg.height = 710;
-            var ctx = canvas.getContext("2d");
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            canvas.width = 511;
-            canvas.height = 710;
-            ctx.drawImage(bg, 0, 0, bg.width, bg.height);
-            image1.src = src1;
-            logo.src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/logo.png";
-            image2.src = src2;
-        };
-        logo.onload=function(){
-            var canvas = document.getElementById("mix_canvas");
-            logo.width=157;
-            logo.height=220;
-            var ctx = canvas.getContext("2d");
-            ctx.drawImage(logo, 330, 22, logo.width, logo.height);
-        };
-        image2.onload = function(){
-            var canvas = document.getElementById("mix_canvas");
-            var ctx = canvas.getContext("2d");
-            ctx.drawImage(image2, 49, 385, image2.width, image2.height);
-            /*ctx.fillStyle="rgba(255,255,255,0.5)";
-            ctx.fillRect(49,385,image2.width, image2.height);*/
-            //window.open(canvas.toDataURL("image/png"));
-            mix_upload(canvas.toDataURL("image/png"));
-            //$("#hidden").append('<img class="virtual_photo" src="'+canvas.toDataURL("image/png")+'" />');
-            //$("#virtual6").append('<img class="virtual_photo" src="'+canvas.toDataURL("image/png")+'" />');
-        };
-        image1.onload = function(){
-            var canvas = document.getElementById("mix_canvas");
-            image1.width=464;
-            image1.height=665;
-            var ctx = canvas.getContext("2d");
-            ctx.drawImage(image1, 22, 23, image1.width, image1.height);
-        };
-        // 设置src属性，浏览器会自动加载。
-        // 记住必须先绑定事件，才能设置src属性，否则会出同步问题。
-        bg.src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/img_bg.jpg";
-    }
-    function mix_upload(pic){
-        $.ajax({
-            url:"/index.php/Index/upload.html",
-            type:"post",
-            dataType:"json",
-            data:{
-                pic:pic
-            },
-            success:function (res){
-                if(res.status==1){
-                    share_pic=res.url;
-                    $("#hidden").prepend('<img src="'+share_pic+'" />');
-                    if( typeof setShare === 'function' ){
-                        //存在且是function
-                        setShare(res.url);
-                    }
-                    //window.open(res.url);
-                }else{
-                    //alert(res.msg);
-                }
-            }
-        });
-    }
-    function lottery(){
-        $.ajax({
-            type: "post",
-            url: "/index.php/Index/lottery.html",
-            dataType: "json",
-            success: function(data){
-                if(data.status!=0){
-                    $("#pr_id").val(data.yes.id);
-                    $("#text8_2").html(data.yes.prize);
-                    $("#product_box img").attr('src',data.yes.pic);
-                    toPage(9);
-                }else{
-                    toPage(10);
-                }
-            }
-        });
-    }
 </script>
 <script type="text/javascript" src="http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/js/touch-0.2.14.min.js"></script>
 <script type="text/javascript">
