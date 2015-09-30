@@ -1,3 +1,359 @@
+var loadI = 0;
+var styleValue = 1;
+var PAni = 0;
+var pon = true;
+var canvas640;
+var version = '2015-9-30';
+var static_path = './';
+var myScroll, myScroll2;
+
+function imageLoad(s) {
+  var urlset = [],
+    undefined, toString = Object.prototype.toString;
+  switch (toString.apply(s.url)) {
+    case '[object String]':
+      urlset[urlset.length] = s.url;
+      break;
+    case '[object Array]':
+      if (!s.url.length) {
+        return false;
+      }
+      urlset = s.url;
+      break;
+    case '[object Function]':
+      s.url = s.url();
+      return imageLoad(s);
+    default:
+      return false;
+  }
+  var imgset = [],
+    r = {
+      total: urlset.length,
+      load: 0,
+      error: 0,
+      abort: 0,
+      complete: 0,
+      currentIndex: 0
+    },
+    timer,
+    _defaults = {
+      url: '',
+      onload: 'function',
+      onerror: 'function',
+      oncomplete: 'function',
+      ready: 'function',
+      complete: 'function',
+      timeout: 15
+    };
+  for (var v in _defaults) {
+    s[v] = s[v] === undefined ? _defaults[v] : s[v];
+  }
+  s.timeout = parseInt(s.timeout) || _defaults.timeout;
+  timer = setTimeout(_callback, s.timeout * 1000);
+  for (var i = 0, l = urlset.length, img; i < l; i++) {
+    img = new Image();
+    img.loaded = false;
+    imgset[imgset.length] = img;
+  }
+  for (i = 0, l = imgset.length; i < l; i++) {
+    imgset[i].onload = function() {
+      _imageHandle.call(this, 'load', i);
+    };
+    imgset[i].onerror = function() {
+      _imageHandle.call(this, 'error', i);
+    };
+    imgset[i].onabort = function() {
+      _imageHandle.call(this, 'abort', i);
+    };
+    imgset[i].src = '' + urlset[i];
+  }
+  if (_isFn(s.ready)) {
+    s.ready.call({}, imgset, r);
+  }
+
+  function _imageHandle(handle, index) {
+    r.currentIndex = index;
+    switch (handle) {
+      case 'load':
+        this.onload = null;
+        this.loaded = true;
+        r.load++;
+        if (_isFn(s.onload)) {
+          s.onload.call(this, r);
+        }
+        break;
+      case 'error':
+        r.error++;
+        if (_isFn(s.onerror)) {
+          s.onerror.call(this, r);
+        }
+        break;
+      case 'abort':
+        r.abort++;
+        break;
+    }
+    r.complete++;
+    // oncomplete 事件回调
+    if (_isFn(s.oncomplete)) {
+      s.oncomplete.call(this, r);
+    }
+    // 判断全局加载
+    if (r.complete === imgset.length) {
+      _callback();
+    }
+  }
+
+  function _callback() {
+    clearTimeout(timer);
+    if (_isFn(s.complete)) {
+      s.complete.call({}, imgset, r);
+    }
+  }
+
+  function _isFn(fn) {
+    return toString.apply(fn) === '[object Function]';
+  }
+  return true;
+}
+
+
+function orient() {
+  if (window.orientation == 0 || window.orientation == 180) {
+
+    $("#waring").hide();
+
+    return false;
+  } else if (window.orientation == 90 || window.orientation == -90) {
+
+    $("#waring").show();
+    return false;
+  }
+}
+
+
+function AnimateLoading() {
+  loadI++;
+  if (loadI == 7) {
+    loadI = 0;
+  }
+  $(".PageUi1").hide();
+  $(".PageUi1").eq(loadI).show();
+}
+
+function LoadInit() {
+  var Ww = $(window).width();
+  var EH = (Ww / 640) * 684;
+  $(".EditDiv,#img-container,#CanvasResult").css({
+    width: Ww,
+    height: EH
+  });
+  $(".cropper-modal").css({
+    width: Ww
+  });
+
+
+}
+
+function SelectCover(index) {
+  $(".cropper-modal").css({
+    'background-image': 'url(images/style' + index + '.png)'
+  });
+  //$("#Page4Bg").html('<img src="{$static_path}images/stylebg'+index+'.jpg" width="100%" />');
+  $(".PageDiv4").css({
+    background: 'url(images/stylebg' + index + '.jpg) no-repeat left top',
+    'background-size': '100% 100%'
+  });
+  //$("#CoverStyle").val(index);
+  styleValue = index;
+}
+
+imageLoad({
+  url: function(v) {
+    v = [static_path + 'images/bowsertext.png', static_path + 'images/bowsertext.png', static_path + 'images/btn1.png', static_path + 'images/btn2.png', static_path + 'images/btn3.png', static_path + 'images/close.png', static_path +
+      'images/covergirlbtn.png', static_path + 'images/editbtn.png', static_path + 'images/followtxt.png', static_path + 'images/gzh.png', static_path + 'images/icon.jpg', static_path + 'images/kv.png', static_path + 'images/kvt1.png',
+      static_path + 'images/kvt2.png', static_path + 'images/kvt3.png', static_path + 'images/kvt4.png', static_path + 'images/savejpg.jpg', static_path + 'images/share.png', static_path + 'images/startbtn.png', static_path +
+      'images/style1.png', static_path + 'images/style2.png', static_path + 'images/style3.png', static_path + 'images/style4.png', static_path + 'images/stylebg1.jpg', static_path + 'images/stylebg2.jpg', static_path +
+      'images/stylebg3.jpg', static_path + 'images/stylebg4.jpg', static_path + 'images/styleicon1.jpg', static_path + 'images/styleicon2.jpg', static_path + 'images/styleicon3.jpg', static_path + 'images/styleicon4.jpg', static_path +
+      'images/submitbtn.png', static_path + 'images/uploadbtn.jpg'
+    ];
+    return v;
+  },
+  oncomplete: function(s) {
+    var fid = parseInt((s.complete / s.total) * 100);
+    if (fid > 20 && pon == true) {
+      pon = false;
+      $(".PageDiv1").show();
+      PAni = setInterval(function() {
+        AnimateLoading();
+      }, 250);
+
+    }
+    $(".parentLoadingNumber").html(fid);
+
+    //	$('#status').html( '正在加载...'+s.complete+'/'+s.total);
+    //$('#processing').html(this.src);
+  },
+  complete: function(imgs, s) {
+    loaded();
+    $(".loadingNum").hide();
+    LoadInit()
+    $(".PageDiv1").show();
+    $(".PageDiv3").hide();
+    $(".prizediv").css({
+      height: ($(window).height() - 20 - 40)
+    })
+    setTimeout(function() {
+      Page2();
+
+    }, 1500);
+
+  }
+
+});
+
+function Page2() {
+  if (PAni) {
+    clearInterval(PAni);
+  }
+  $(".PageDiv1").hide();
+  $(".PageDiv2").show();
+  $("#Page2Text").show();
+  Page2Animate1();
+}
+var c = 0;
+
+function Page2Animate1() {
+  $("#Page2Text>div").eq(c).show().addClass("animated fadeInUp");
+  c++;
+  if (c == 5) {
+
+    setTimeout(function() {
+      Page2Animate2()
+    }, 1200)
+    return;
+  }
+  setTimeout(function() {
+    Page2Animate1()
+  }, 500)
+}
+
+function Page2Animate2() {
+  $("#Page2Text").addClass("animated fadeOutUp");
+  setTimeout(function() {
+    $("#Page2Text").hide();
+    $("#Page2BtnAll").show();
+    Page2Animate3();
+  }, 1200)
+}
+
+function Page2Animate3() {
+  $(".StartGameBtn").show().addClass("animated fadeInUpBig");
+  setTimeout(function() {
+    $("#BtnListID>.Btnlist").eq(0).show().addClass("animated bounceInLeft");
+    $("#BtnListID>.Btnlist").eq(1).show().addClass("animated bounceInUp");
+    $("#BtnListID>.Btnlist").eq(2).show().addClass("animated bounceInRight");
+  }, 800)
+}
+
+function StartGame() {
+  $(".PageDiv2").hide();
+  $(".PageDiv3").css("opacity", 1).show();
+  $(".popup").show();
+
+}
+
+function EditCanvas() {
+  $(".PageDiv4").hide();
+  $(".PageDiv3").show();
+
+}
+
+function submitData() {
+  if (canvas640 == "") {
+    alert('封面为空哦！');
+    return false;
+  }
+  var userName = $.trim($("#userName").val());
+  var phone = $.trim($("#phone").val());
+  if (userName == "") {
+    alert('姓名不能为空哦！');
+    return false;
+  }
+  if (phone == "") {
+    alert('手机不能为空哦！');
+    return false;
+  }
+  if (!checkMobile(phone)) {
+    alert('手机号码不正确哦！');
+    return false;
+  }
+  $.ajax({
+    type: 'post',
+    url: "upload.php",
+    dataType: "json",
+    data: {
+      userName: userName,
+      phone: phone,
+      data: canvas640
+    },
+    beforeSend: function() {
+      $(".loading").show();
+      $("#loadingtips").html("上传中...");
+    },
+    success: function(data) {
+      $(".loading").hide();
+      if (data.rsp) {
+        location.href = "sharePage.php?id=" + data.id + "&uid=" + data.uid;
+      } else {
+        alert(data.errorMsg);
+        return false;
+      }
+    },
+    error: function(data) {}
+  });
+}
+
+function checkMobile(value) {
+  if (value != "") {
+    var reg = /^1[3,4,5,7,8]{1}[0-9]{1}[0-9]{8}$/;
+    if (value.match(reg) == null) {
+      return false;
+    }
+  } else {
+    return false;
+  }
+  return true;
+}
+
+function loaded() {
+
+  myScroll = new iScroll('wrapperScroll', {
+    useTransition: false
+  });
+  myScroll2 = new iScroll('wrapperScroll2', {
+    useTransition: false
+  });
+}
+
+
+function shareBox(class1, class2) {
+
+  $(class1).show();
+  $(class2).animate({
+    'bottom': '0'
+  }, 800);
+  myScroll.refresh();
+  myScroll2.refresh();
+}
+
+function closeShare(class1, class2) {
+  $(class2).animate({
+    'bottom': -($(window).height() - 20)
+  }, 500, function() {
+    $(class1).hide();
+  });
+}
+
 $(function() {
 
   'use strict';
