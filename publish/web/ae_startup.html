@@ -15,11 +15,286 @@
 </head>
 <body style="margin:0;padding:0;">
 	<div id="Stage" class="EDGE-170573621">
-	
+
         <div id="Stage_Symbol_1" class="edgeLoad-EDGE-170573621">
             <video id="Stage_Symbol_1__37622100" autoplay="autoplay" loop="loop"></video>
         </div>
         <div id="Stage_brand5" class="edgeLoad-EDGE-170573621"></div>
     </div>
+<<script type="text/javascript">
+
+	document.ontouchmove = function(e){ e.preventDefault(); };
+	var browser={
+			versions:function(){
+					var u = navigator.userAgent, app = navigator.appVersion;
+					return {
+							trident: u.indexOf('Trident') > -1, //IE内核
+							presto: u.indexOf('Presto') > -1, //opera内核
+							webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+							gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,//火狐内核
+							mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+							ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+							android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+							iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器
+							iPad: u.indexOf('iPad') > -1, //是否iPad
+							webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+							weixin: u.indexOf('MicroMessenger') > -1, //是否微信 （2015-01-22新增）
+							qq: u.match(/\sQQ/i) == " qq" //是否QQ
+					};
+			}(),
+			language:(navigator.browserLanguage || navigator.language).toLowerCase()
+	};
+	guide_video=document.getElementById("guide_video");
+	video=document.getElementById("video");
+	guide_video.addEventListener("ended",function(){
+			setTimeout(function(){
+					toPage(4);
+					$("#upload_box_a").addClass("hidden");
+			},1000);
+	},false);
+	if(is_iOS7()){
+			$("#page2").css("background","url('http://77fybz.com1.z0.glb.clouddn.com/ios7-bg.jpg')");
+			video.addEventListener('play',function(){
+					$("#upload_box_a").css("z-index",-1);
+			});
+			video.addEventListener('ended',function(){
+					$("#video").remove();
+					$("#upload_box_a").css("z-index",1);
+			});
+			video.addEventListener("webkitfullscreenchange",function(e){
+					if(!document.webkitIsFullScreen);
+			}, false);
+	}
+	if(!browser.versions.android){
+			video.addEventListener("loadstart",function(){
+					this.play();
+					setTimeout(function(){
+							video.pause();
+					},200);
+			},false);
+			guide_video.addEventListener("loadstart",function(){
+					this.play();
+					setTimeout(function(){
+							guide_video.pause();
+					},200);
+			},false);
+	}
+	if(browser.versions.android){
+			video.addEventListener("ended",function(){
+					$("#video").remove();
+			},false);
+			guide_video.addEventListener("ended",function(){
+					$("#guide_video").remove();
+			},false);
+			$(".bg_video video").css({"width": "100%","min-height": "100%"});
+	}
+	phone_sound=document.getElementById("phone_sound");
+	phone_sound.addEventListener("ended",function(){
+			this.currentTime=0;
+			this.play();
+	});
+
+
+	page_index=0;share_pic="http://rejoice-jas-wap.app.social-touch.com/http://7xj1rm.com1.z0.glb.clouddn.com/rejoice_jas_wap/1/Public/loads/share-weibo.jpg";
+	function toPage(a){
+			page_index=a-1;
+			hei=$(window)[0].innerHeight;
+			$('.page').css({"transition-delay": "0s", "transition-duration": "0s","transform":"translate3d(0px,"+(-hei*(a-1))+"px,0px)"});
+	}
+	function heldOn(){
+			$("#upload_box_a").removeClass("hidden");
+			playVideo("video");
+			toPage(2);
+			phone_sound.pause();
+	}
+	function toExit(){
+			window.location.href="http://cms.m.yhd.com/sale/175118?tracker_u=10586512200";
+	}
+
+
+	function is_iOS7() {
+			// 判断是否 iPhone 或者 iPod
+			if((navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i))) {
+					// 判断系统版本号是否大于 4
+					return Boolean(navigator.userAgent.match(/OS [7]_\d[_\d]* like Mac OS X/i));
+			} else {
+					return false;
+			}
+	}
+	var choose_status=true;
+	function chooseType(){
+			toPage(5);
+			if(choose_status){
+					for(var i=1;i<11;i++){
+							$("#bottle_text"+i).animate({opacity:1},(500*(i>5?i:5)));
+							/*if(i==10){
+									setTimeout(function(){
+											$("#bottle_box").removeClass("hidden").addClass("productScale");
+											$("#bottle_touch").removeClass("hidden");
+									},2500);
+							}*/
+					}
+					choose_status=false;
+			}
+			$("#upload_box_a").removeClass("hidden");
+			$(".beautyimg,.img_box,.upload_box_cover").addClass("hidden");
+			$('#bottle_box').after($('#bottle_box').removeClass('productScale').clone(true)).remove();
+			$("#beautyimg"+video_index).removeClass("hidden");
+
+			mix_img($("#video_img"+video_index).attr("src"),$("#pic").val());
+	}
+	function beautify(){
+			$("#bottle_box").addClass("productScale");
+			$(".img_box").removeClass("hidden");
+			setTimeout(function(){
+					$(".upload_box_cover").removeClass("hidden");
+					setTimeout(function(){
+							$(".video,.img_text,.img_box").addClass("hidden");
+							$("#video"+video_index+",#img_text"+video_index).removeClass("hidden");
+							playVideo("video"+video_index);
+							toPage(6);
+					},2000);
+			},700)
+	}
+	function alert_container(a){
+			$(".alert_container").css("z-index",99).removeClass("hidden");
+			$(".alert_box").addClass("hidden");
+			$(a).removeClass("hidden");
+	}
+
+	num=1;
+	function loading(){
+			if(num==7){
+					$("#loading_text_point").html("");
+					num=1;
+			}
+			$("#loading_text_point").append(".");
+			num++;
+	}
+	function playVideo(a){
+			eval(a+".play()");
+	}
+	function page_start(){
+			clearInterval(loading_num);
+			$("#loading").remove();
+			phone_sound.play();
+	}
+	var loading_num=setInterval(loading,500);
+	window.onload=function(){
+			/*page_start();*/
+			$(window).resize(function() {
+					hei=$(window)[0].innerHeight;
+					$('.page').css({"transition-delay": "0s", "transition-duration": "0s","transform":"translate3d(0px,"+(-hei*(page_index))+"px,0px)"});
+			});
+
+			$("#upload_box_a").on("click",function(){
+					$('#photo').click();
+			});
+
+			//$("#upload_box_a").bind("click",function(){
+			//    $('#photo').val("").click();
+			//});
+
+			$('#photo').change(function(){
+					$("#upload_box").html("<img src='http://7xl8q6.com1.z0.glb.clouddn.com/_static/wap_1/Public/wap/images/uploading.png' />");
+					var file = this.files[0]; //选择上传的文件
+					var r = new FileReader();
+					r.readAsDataURL(file); //Base64
+					$(r).load(function(){
+							$(".upload_box").css("background","none");
+							$("#upload_img").addClass("hidden");
+							$('#upload_box_a').prepend('<img class="photo" src="'+ this.result +'" alt="" />');
+							$('#upload_box6').prepend('<img class="photo" src="'+ this.result +'" alt="" />');
+							$('#pic').val(this.result);
+							setTimeout(function(){
+									$(".img_box").height($("#upload_box_a").height()+30);
+							},700);
+							render(this.result);
+
+							setTimeout(function(){
+									if(!video.paused){
+											video.pause();
+											toPage(3);
+									}
+									toPage(3);
+									playVideo("guide_video");
+									/*$("#guide_video").click();*/
+							},1000);
+							/*setTimeout("toPage(4)",2000);*/
+					});
+			});
+			page_start();
+	};
+	function state1(){
+			$("#img7").removeClass("r2").addClass("r1");
+			setTimeout(state2,90);
+	}
+	function state2(){
+			$("#img7").removeClass("r1").addClass("r2");
+			setTimeout(state1,90);
+	}
+	$("#button6_1").click(function(){
+			toPage(8);
+			shake();
+	});
+	$("#share").click(function(){
+			$(this).css("z-index",0).addClass("hidden");
+	});
+	$("#submit_button").click(function(){
+			var name=$("#name").val();
+			if(name==""){
+					$("#return_result").text('姓名不能为空');
+					$("#name").focus();
+					return false;
+			}
+			var phone=$("#phone").val();
+			if(phone=="") {
+					$("#return_result").text('手机不能为空');
+					$("#phone").focus();
+					return false;
+			}
+			var p1 = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
+			if (!p1.test(phone)){
+					$("#return_result").text('手机号码有错误');
+					$("#phone").focus();
+					return false;
+			}
+			var address=$("#address").val();
+			if(address==""){
+					$("#return_result").text('地址不能为空');
+					$("#address").focus();
+					return false;
+			}
+			$.ajax({
+					url:"/index.php/Index/submit_from.html",
+					type:"post",
+					dataType:"json",
+					data:{
+							pr_id:$("#pr_id").val(),
+							name:name,
+							phone:phone,
+							address:address
+					},
+					success:function (res){
+							if(res.status==1){
+									alert_container("#success");
+									setTimeout(replay,2000);
+							}else{
+									$("#return_result").text(res.msg);
+							}
+					}
+			});
+	});
+	$("#replay").click(function(){
+			toPage(4);
+	});
+	$("#back_button").click(function(){
+			$(".alert_container").css("z-index",0).addClass("hidden");
+			toPage(4);
+	});
+
+
+</script>
 </body>
+
 </html>
