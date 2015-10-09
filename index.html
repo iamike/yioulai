@@ -1,286 +1,615 @@
+
 <!doctype html>
 <html>
-
 <head>
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv='X-UA-Compatible' content='IE=EmulateIE7' />
-  <meta name="viewport" content="width=device-width,  maximum-scale=1.0, minimum-scale=1.0" />
-  <meta content="telephone=no" name="format-detection" />
-  <title>White Shirt</title>
+<meta name= "apple-mobile-web-app-capable" content ="yes" />
+<meta name= "apple-mobile-web-app-status-bar-style" content= "black" />
+<meta http-equiv= "Content-Type" content ="text/html; charset=utf-8" />
+<meta http-equiv= 'X-UA-Compatible' content ='IE=EmulateIE7' />
+<meta name="viewport" content="width=device-width,  maximum-scale=1.0, minimum-scale=1.0" />
+<meta content= "telephone=no" name ="format-detection" />
+<title>白衬衫宣言</title>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=2015-9-30" language="javascript"></script>
+<!--<style type="text/css">
 
-  <link href="./style/global.css?v=2015-9-30" type="text/css" rel="stylesheet">
-  <link href="./js/assets/css/cropper.min.css" rel="stylesheet" type="text/css">
-  <script type="text/javascript" src="./js/jquery.min.js"></script>
-  <script type="text/javascript" src="./js/megapix-image.js"></script>
-  <script type="text/javascript" src="./js/exif.js"></script>
-  <script type="text/javascript" src="./js/iscroll.js"></script>
-  <script type="text/javascript" src="./js/assets/js/cropper.js"></script>
+@font-face { font-family: KlavikaBold; src: url('./KlavikaBold-Bold.otf'); }
+@font-face { font-family: KlavikaRegCaps; src: url('./KlavikaRegCaps-SC.otf'); }
 
-</head>
+</style>-->
+  <SCRIPT language=javascript type=text/javascript>
+<!--
+document.oncontextmenu=new Function('event.returnValue=true;');
+document.onselectstart=new Function('event.returnValue=true;');
+-->
+  </SCRIPT>
+<link href="./style/global.css?v=2015-9-30" type="text/css" rel="stylesheet">
+<link href="./js/assets/css/cropper.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/megapix-image.js"></script>
+<script type="text/javascript">var styleValue = 1;</script>
+<script type="text/javascript" src="./js/exif.js"></script>
+<script type="text/javascript" src="./js/iscroll.js"></script>
+<script type="text/javascript" src="./js/turn.js"></script>
+ <script type="text/javascript" src="./js/assets/js/cropper.js"></script>
+<script type="text/javascript">
+var version ='2015-9-30';
+var static_path = './';
+var  jssdk='{"appId":"wxa854e974d35e6dfa","nonceStr":"NxNdBHcA0To7ROiB","timestamp":1444372575,"url":"http:\/\/testhooksbpo.5adian.com\/WhiteShirt\/","signature":"f3df9889fa1a042fad2f5b75bde36057956d2ab0","rawString":"jsapi_ticket=bxLdikRXVbTPdHSM05e5uzXvHAO_BdNGMyjJPa_9Ga-l-Y_6ekZxYmzFdnlQv4p4HYt2MNhyLxr0J49w-hYELQ&noncestr=NxNdBHcA0To7ROiB&timestamp=1444372575&url=http:\/\/testhooksbpo.5adian.com\/WhiteShirt\/"}';
+jssdk=eval("(" + jssdk + ")");
 
-<body>
+var shareComnext = {
 
-  <div class="loadingNum" >
-    <span class="parentLoadingNumber">0</span>%
-    <br> 正在加载中...
-  </div>
+title: '奕欧来 White Shirt',
+        link : 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa854e974d35e6dfa&redirect_uri=http%3A%2F%2Ftesthooksbpo.5adian.com%2FWhiteShirt%2Findex.php%3Ftype%3Dwchat&response_type=code&scope=snsapi_userinfo&state=whiteshirt#wechat_redirect',
+        desc :  '奕欧来 White Shirt。',
+        imgUrl : 'http://testhooksbpo.5adian.com/WhiteShirt/images/share.jpg'
 
-  <div class="PageDiv2">
-    <div style="position:relative; left:0; top:0; z-index:1; width:100%;">
-        <img src="./images/kv.png" width="100%" />
-      <div style=" clear:both; margin-top:30px; display:none;" id="Page2Text">
-
-      </div>
-      <div style=" clear:both; margin-top:20px; display:none; " id="Page2BtnAll">
-        <div style="width:50%; margin-left:auto; margin-right:auto;" class="Hidetxt StartGameBtn" onClick="StartGame()">
-          <img src="./images/startbtn.png" width="100%" />
-        </div>
-        <div class="BtnDivBox" id="BtnListID">
-          <div class="Btnlist Hidetxt" onClick="shareBox('.awardsOut1','.awardMain1')">
-            <img src="./images/btn1.png" width="100%">
-          </div>
-          <div class="Btnlist Hidetxt" onClick="shareBox('.awardsOut1','.awardMain1')">
-            <img src="./images/btn2.png" width="100%">
-          </div>
-          <div class="Btnlist Hidetxt" onClick="shareBox('.awardsOut','.awardMain')">
-            <img src="./images/btn3.png" width="100%">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="PageDiv3" >
-    <div style="position:relative; left:0; top:0; z-index:1; width:100%;">
-      <div class="EditDiv">
-        <div id="img-container" class="avatar-view" style="width:100%; position:absolute; left:0; top:0; z-index:88;">
-          <img src="./images/icon.jpg" width="100%" class="imgIcon" />
-        </div>
-      </div>
-      <div style=" clear:both;  background-color:#fff;" id="comCanvasBox">
-        <Div style="height:12px; overflow:hidden;  background:-webkit-gradient(linear,0 0, 0 100%,from(#fdfdfd),to(#f4f4f4));"></Div>
-        <div style="font-size:13px; color:#ff0000; text-align:center; line-height:22px; ">请点击选择以下您喜欢的封面</div>
-        <Div class="SelectStyleDiv">
-          <input type="hidden" value="1" id="CoverStyle" />
-          <div class="SelectStyleLi" onClick="SelectCover(1)">
-            <img src="./images/styleicon1.jpg" width="100%" />
-          </div>
-          <div class="SelectStyleLi" onClick="SelectCover(2)">
-            <img src="./images/styleicon2.jpg" width="100%" />
-          </div>
-          <div class="SelectStyleLi" onClick="SelectCover(3)">
-            <img src="./images/styleicon3.jpg" width="100%" />
-          </div>
-          <div class="SelectStyleLi" onClick="SelectCover(4)">
-            <img src="./images/styleicon4.jpg" width="100%" />
-          </div>
-        </Div>
-        <form class="avatar-form" action="uploadFile.php" enctype="multipart/form-data" method="post" target="iframe">
-          <div style=" clear:both; overflow:hidden; margin:0 5%; padding-top:5px;  ">
-            <Div style=" width:40%; float:left; margin-left:5%; position:relative">
-              <input class="avatar-src" name="avatar_src" type="hidden" value="">
-              <input class="avatar-data" name="avatar_data" type="hidden" id="avatar_data" value="">
-              <img src="./images/uploadbtn.jpg" width="100%">
-              <input class="avatar-input" id="avatarInput" name="avatar_file" type="file" accept="image/*" style="display:block; position:absolute;left:0px; cursor:pointer; opacity:0;top:0;height:50px;z-index:10;width:100%;">
-            </Div>
-            <Div style="width:40%;  float:left; margin-left:5%" id="download">
-              <img src="./images/savejpg.jpg" width="100%">
-            </Div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div class="PageDiv4" style="display:none; background:url(images/stylebg1.jpg) no-repeat left top; background-size:100% 100%; min-height:100%;">
-    <div style="position:relative; left:0; top:0; z-index:1; width:100%;">
-      <div style=" width:100%; margin-left:auto; margin-right:auto; " id="CanvasResult"></div>
-      <div style="margin-top:10px;">
-        <img src="./images/bowsertext.png" width="100%">
-      </div>
-      <Div style=" width:70%; margin-left:auto; margin-right:auto; height:32px; border-bottom:1px solid rgba(0,0,0,0.2); position:relative;">
-        <div style="width:50px; line-height:32px; font-size:12px; position:absolute; left:0; top:0; font-weight:bold;">姓名：</div>
-        <div style=" margin-left:50px;">
-          <input type="text" id="userName" value="" style="width:100%; border:0; background:0; height:32px; line-height:32px; font-size:14px; color:#000;" />
-        </div>
-      </Div>
-      <Div style=" width:70%; margin-left:auto; margin-right:auto; height:32px; border-bottom:1px solid rgba(0,0,0,0.2); position:relative;">
-        <div style="width:50px; line-height:32px; font-size:12px; position:absolute; left:0; top:0; font-weight:bold;">手机：</div>
-        <div style=" margin-left:50px;">
-          <input type="tel" id="phone" value="" style="width:100%; border:0; background:0; height:32px; line-height:32px; font-size:14px; color:#000;" />
-        </div>
-      </Div>
-      <div style=" clear:both; overflow:hidden; margin:0 5%; padding-top:10px;  ">
-        <Div style=" width:40%; float:left; margin-left:5%" onClick="EditCanvas()">
-          <img src="./images/editbtn.png" width="100%">
-        </Div>
-        <Div style="width:40%;  float:left; margin-left:5%" onClick="submitData()">
-          <img src="./images/submitbtn.png" width="100%">
-        </Div>
-      </div>
-    </div>
-  </div>
-  <div class="popup" style="display: none;" onClick="$('.popup').hide()">
-    <div class="imgShow">
-      <img src="./images/shoushi.png" width="100%">
-    </div>
-  </div>
-  <div style="position:absolute; left:0; top:0; display:none;" id="IosCanvas">
-    <canvas id="resultCanvas2"></canvas>
-  </div>
-  <input type="hidden" value="0" id="IsUploadImage" />
-
-  <script type="text/javascript">
-  </script>
-  <iframe name="iframe" style="display: none"></iframe>
-  <div class="awardsOut" style="display: none; bottom: -500px;">
-    <div class="awardMain">
-      <div style="width:90%; margin: 0 auto; padding-bottom:100px;">
-        <div class="prizediv GzDiv1" style="overflow:auto; position: relative;" id="wrapperScroll">
-          <div id="scroller" style="position: relative; ">
-
-            <div style="height:40px; overflow:hidden;"></div>
-            <div style="font-size:16px; line-height:32px; font-weight:bold;">活动详情</div>
-            白衬衫宣言由巴黎河谷购物村发起，结合时尚与艺术的系列活动。
-            <br>
-            <br> 河谷购物村是奕欧来EUOPRE九大精品购物村之一，荟集120多家法国本土乃至国际名牌精品店，购物村内亦有画廊定期举办艺术展。
-            <br>
-            <br> 此次河谷购物村赞助法国女画家Vigée Le Brun在巴黎大皇宫的艺术大展，并发起白衬衫宣言，向这一经典的时尚元素致敬！
-            <br>
-            <br> 奕欧来EUROPE是欧洲九大精品购物村，在英国、法国、意大利、爱尔兰、比利时、西班牙拥有近千家奢侈品牌精品店。每个购物村独具特色，并提供舒适贴心的服务，给你带来完美的购物之行。
-            <br>
-          </div>
-        </div>
-      </div>
-      <div class="close">
-        <a href="javascript:void(0)" onclick="closeShare('.awardsOut','.awardMain')">
-          <img src="images/close.png" width="20px">
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="awardsOut1" style="display: none; bottom: -500px;">
-    <div class="awardMain1">
-      <div style="width:90%; margin: 0 auto; padding-bottom:100px;">
-        <div class="prizediv GzDiv1" style="overflow:auto; position: relative;" id="wrapperScroll2">
-          <div id="scroller2" style="position: relative; ">
-
-            <div style="height:40px; overflow:hidden;"></div>
-            <div style="font-size:16px; line-height:32px; font-weight:bold;">活动规则</div>
-            1. 上传你最in的白衬衫造型
-            <br> 2. 选择你最喜爱的杂志封面背景
-            <br> 3. 生成你的白衬衫封面照
-            <br>
-            <br> 我们将投票选出5位白衬衫优秀代言人，赢（品牌名）白衬衫一件！ </div>
-        </div>
-      </div>
-      <div class="close">
-        <a href="javascript:void(0)" onclick="closeShare('.awardsOut1','.awardMain1')">
-          <img src="images/close.png" width="20px">
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="loading" style="display:none;">
-    <div class="loadBox">
-      <span class="square"></span>
-      <span id="loadingtips" style="display:block; clear:both">提交数据中...</span>
-    </div>
-  </div>
-
-
-  <div align="center" id="waring" style="display:none; background-color:rgba(0,0,0,0.9); position:absolute; width:100%; left:0; top:0; height:100%; z-index:100000;">
-    <img src="./images/landscape.jpg?v=2015-9-30" width="130" style="top:50%; margin-top:-62px; position:absolute; left:50%; margin-left:-65px;" />
-  </div>
-
-
-
-  <script type="text/javascript" src="./js/main.js"></script>
-  <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=2015-9-30" language="javascript"></script>
-  <script type="text/javascript">
-    var jssdk =
-      '{"appId":"wxa854e974d35e6dfa","nonceStr":"VV9A2KOMu8JcGdg7","timestamp":1443515005,"url":"http:\/\/testhooksbpo.5adian.com\/WhiteShirt\/index.php?type=wchat&code=04117b99cf32f4537dc983526718410d&state=whiteshirt","signature":"42ac74c925fd6b1b229c392c0865dc23bb43352e","rawString":"jsapi_ticket=bxLdikRXVbTPdHSM05e5uzXvHAO_BdNGMyjJPa_9Ga_JUB2yZ6Xf9GGqcwQQMIbystlRYrTInX6MOeCtNzJNIA&noncestr=VV9A2KOMu8JcGdg7&timestamp=1443515005&url=http:\/\/testhooksbpo.5adian.com\/WhiteShirt\/index.php?type=wchat&code=04117b99cf32f4537dc983526718410d&state=whiteshirt"}';
-    jssdk = eval("(" + jssdk + ")");
-
-    var shareComnext = {
-
-        title: '奕欧来 White Shirt',
-        link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa854e974d35e6dfa&redirect_uri=http%3A%2F%2Ftesthooksbpo.5adian.com%2FWhiteShirt%2Findex.php%3Ftype%3Dwchat&response_type=code&scope=snsapi_userinfo&state=whiteshirt#wechat_redirect',
-        desc: '奕欧来 White Shirt。',
-        imgUrl: 'http://testhooksbpo.5adian.com/WhiteShirt/images/share.jpg'
-
-      }
-      //微信分享信息
-    wx.config({
-      debug: false,
-      appId: jssdk.appId,
-      timestamp: jssdk.timestamp,
-      nonceStr: jssdk.nonceStr,
-      signature: jssdk.signature,
-      jsApiList: [
-        // 所有要调用的 API 都要加到这个列表中
-        'checkJsApi',
-        'onMenuShareTimeline',
-        'onMenuShareAppMessage',
-        'onMenuShareQQ',
-        'onMenuShareWeibo',
-        'hideMenuItems',
-        'showMenuItems',
-        'hideAllNonBaseMenuItem',
-        'showAllNonBaseMenuItem',
-        'hideOptionMenu',
-        'showOptionMenu',
-        'closeWindow',
-
-      ]
-    });
-    wx.ready(function() {
-      // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
-      wx.checkJsApi({
-        jsApiList: [
-          'closeWindow',
-          'hideOptionMenu',
-          'onMenuShareAppMessage',
-          'onMenuShareTimeline',
-        ],
-        success: function(res) {
-          // alert(JSON.stringify(res));
+}
+function imageLoad( s ){
+    var urlset = [], undefined, toString = Object.prototype.toString;
+    switch( toString.apply(s.url) ){
+        case '[object String]': urlset[urlset.length] = s.url; break;
+        case '[object Array]': if(!s.url.length){ return false; } urlset = s.url; break;
+        case '[object Function]': s.url = s.url(); return imageLoad( s );
+        default: return false;
+    }
+    var imgset =[], r ={ total:urlset.length, load:0, error:0, abort:0, complete:0, currentIndex:0 }, timer,
+        _defaults = {
+            url:'',
+            onload: 'function',
+            onerror: 'function',
+            oncomplete: 'function',
+            ready: 'function',
+            complete: 'function',
+            timeout: 15
+        };
+    for( var v in _defaults){
+        s[v] = s[v]===undefined? _defaults[v]: s[v];
+    }
+    s.timeout = parseInt( s.timeout ) || _defaults.timeout;
+    timer = setTimeout( _callback, s.timeout*1000);
+    for( var i=0,l=urlset.length,img; i<l; i++){
+        img         = new Image();
+        img.loaded    = false;
+        imgset[imgset.length] = img;
+    }    for( i=0,l=imgset.length; i<l; i++){
+        imgset[i].onload     = function(){ _imageHandle.call(this, 'load', i ); };
+        imgset[i].onerror     = function(){ _imageHandle.call(this, 'error', i ); };
+        imgset[i].onabort     = function(){ _imageHandle.call(this, 'abort', i ); };
+        imgset[i].src         = ''+urlset[i];
+    }
+    if( _isFn(s.ready) ){ s.ready.call({}, imgset, r); }
+    function _imageHandle( handle, index ){
+        r.currentIndex = index;
+        switch( handle ){
+            case 'load':
+                this.onload = null; this.loaded = true; r.load++;
+                if( _isFn(s.onload) ){ s.onload.call(this, r); }
+                break;case 'error': r.error++;
+                if( _isFn(s.onerror) ){ s.onerror.call(this, r); }
+                break;
+            case 'abort': r.abort++; break;
         }
-      });
-      //wx.hideOptionMenu();
-      //分享到朋友圈
-      wx.onMenuShareTimeline({
+        r.complete++;
+        // oncomplete 事件回调
+        if( _isFn(s.oncomplete) ){ s.oncomplete.call(this, r); }
+        // 判断全局加载
+        if( r.complete===imgset.length ){ _callback(); }
+    }
+    function _callback(){
+        clearTimeout( timer );
+        if( _isFn(s.complete) ){ s.complete.call({}, imgset, r); }
+    }
+    function _isFn(fn){ return toString.apply(fn)==='[object Function]'; }
+    return true;
+}
+//微信分享信息
+wx.config({
+        debug:false,
+        appId:jssdk.appId,
+        timestamp:jssdk.timestamp,
+        nonceStr: jssdk.nonceStr,
+        signature:jssdk.signature,
+        jsApiList: [
+    // 所有要调用的 API 都要加到这个列表中
+    'checkJsApi',
+    'onMenuShareTimeline',
+    'onMenuShareAppMessage',
+    'onMenuShareQQ',
+    'onMenuShareWeibo',
+    'hideMenuItems',
+    'showMenuItems',
+    'hideAllNonBaseMenuItem',
+    'showAllNonBaseMenuItem',
+    'hideOptionMenu',
+    'showOptionMenu',
+    'closeWindow',
+
+]
+});
+wx.ready(function () {
+    // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
+    wx.checkJsApi({
+        jsApiList: [
+            'closeWindow',
+            'hideOptionMenu',
+            'onMenuShareAppMessage',
+            'onMenuShareTimeline',
+        ],
+        success: function (res) {
+           // alert(JSON.stringify(res));
+        }
+    });
+    //wx.hideOptionMenu();
+    //分享到朋友圈
+    wx.onMenuShareTimeline({
         title: shareComnext.title, // 分享标题
         link: shareComnext.link, // 分享链接
         imgUrl: shareComnext.imgUrl, // 分享图标
         desc: decodeURIComponent(shareComnext.desc), // 分享描述
-        success: function() {},
-        cancel: function() {
-          // 用户取消分享后执行的回调函数
+        success: function () {
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
         }
-      });
-      //分享给朋友
-      wx.onMenuShareAppMessage({
+    });
+    //分享给朋友
+    wx.onMenuShareAppMessage({
         title: shareComnext.title, // 分享标题
         link: shareComnext.link, // 分享链接
-        imgUrl: shareComnext.imgUrl, // 分享图标
+        imgUrl:shareComnext.imgUrl, // 分享图标
         desc: decodeURIComponent(shareComnext.desc), // 分享描述
         type: 'link', // 分享类型,music、video或link，不填默认为link
         dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-        success: function(res) {},
-        cancel: function() {
-          // 用户取消分享后执行的回调函数
-          // alert("cancel");
+        success: function (res) {
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+            // alert("cancel");
         }
-      });
+    });
 
+});
+wx.error(function (res) {
+   // alert(res.errMsg);
+});
+
+</script>
+</head>
+
+<body>
+<script type="text/javascript" src="./js/main.js"></script>
+<style type="text/css">
+
+*{-webkit-text-size-adjust: none;}
+.PageUi1{ width:80%; margin-left:auto; margin-right:auto;}
+.PageDiv2{ }
+.Btnlist{ float:left; width:30%; margin-left:3%}
+.BtnDivBox{ margin:0 5%;margin-top:20px; overflow:hidden; clear:both;}
+.SelectStyleDiv{ clear:both;  width:100%; padding:0 10%; padding-top:5px; }
+.SelectStyleLi{ float:left; width:15%; margin-right:5%; position:relative;}
+div.SelectCur{ box-shadow: 0 10px 8px #666; margin-top:-8px; }
+.awardsOut,.awardsOut1{ width:100%; height:100%; background:rgba(0,0,0,0.3) repeat; position:fixed;z-index:15;top:0; left:0;}
+.awardMain,.awardMain1{ background:#fff;height:80%;width:95%;left:2.5%; position:absolute;bottom:0; box-shadow:0 0 2px #000;}
+
+.prizeOne{ font-size:16px; color:#5d5d5d; text-align:center; font-style:KlavikaBold; padding:5px 0;}
+.prizeTwo{ color:#434f50; line-height:16px; text-align:center; }
+.close a{ position:absolute;top:5px; right:10px; padding:10px;}
+.pos{position:absolute; left:0; top:0; z-index:2}
+
+
+/* book */
+
+.book {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hide !important;
+}
+
+.book .page {
+    height: 100%;
+    background-color: #fff;
+}
+
+.book .page img {
+    max-width: 100%;
+    height: 100%;
+}
+
+</style>
+
+<div  class="loadingNum" style=" width:100px;   height:50px; position:fixed; left:50%; bottom:15%; margin-left:-50px;  font-size:14px; z-index:999; color:#171e26;  text-align:center; line-height:22px;"><span class="parentLoadingNumber">0</span>%<br>
+  正在加载中...</div>
+<div class="PageDiv1" style="display:none;">
+  <div class="PageUi1"><img src="./images/p1.jpg" width="100%" /></div>
+  <div class="PageUi1" style="display:none;"><img src="./images/p2.jpg" width="100%" /></div>
+  <div class="PageUi1" style="display:none;"><img src="./images/p3.jpg" width="100%" /></div>
+  <div class="PageUi1" style="display:none;"><img src="./images/p4.jpg" width="100%" /></div>
+  <div class="PageUi1" style="display:none;"><img src="./images/p5.jpg" width="100%" /></div>
+  <div class="PageUi1" style="display:none;"><img src="./images/p6.jpg" width="100%" /></div>
+  <div class="PageUi1" style="display:none;"><img src="./images/p7.jpg" width="100%" /></div>
+</div>
+<div class="PageDiv2" style=" display:none; ">
+  <Div style="position:fixed; left:0; top:0; width:100%; z-index:0;"><img src="./images/stylebg1.jpg" width="100%" /></Div>
+  <div style="position:relative; left:0; top:0; z-index:1; width:100%;" id="Page2ActionDiv">
+    <div class="book">
+      <div class="page">
+        <img src="./images/kv.jpg" width="100%" />
+        <div class="pos" id="StartGameBtn" onClick="StartGame(event)"></div>
+        <div class="pos" id="BtnLeftTop" onClick="shareBox('.awardsOut','.awardMain')"></div>
+        <div class="pos" id="BtnLeftBottom" onClick="shareBox('.awardsOut1','.awardsOut1')"></div>
+        <div class="pos" id="BtnRightTop"></div>
+        <div class="pos" id="BtnRightBottom" ></div>
+      </div>
+      <div class="page"></div>
+      <div class="page"></div>
+      <div class="page"></div>      
+    </div>
+
+    
+
+  </div>
+  <div style="padding-top:5px; position:relative; z-index:1;"><img src="./images/europelogo.png" width="100%" /></div>
+</div>
+<div class="PageDiv3" style=" opacity:0; min-height:100%;">
+	<Div style="position:fixed; left:0; top:0; width:100%; z-index:0;"><img src="./images/stylebg1.jpg" width="100%" /></Div>
+  <div style="position:relative; left:0; top:0; z-index:1; width:100%;">
+    <div class="EditDiv">
+      <div id="img-container" class="avatar-view" style="width:100%; position:absolute; left:0; top:0; z-index:88;"> <img  src="./images/icon.jpg"  width="100%" class="imgIcon"/></div>
+    </div>
+    <div style=" clear:both;  background-color:rgba(255,255,255,0.5); position:fixed; left:0; width:100%; bottom:0; padding:10px 0; z-index:99" id="comCanvasBox">
+
+      <!-- <div style="font-size:13px; color:#ff0000; text-align:center; line-height:22px; ">请点击选择以下您喜欢的封面</div>-->
+      <Div class="SelectStyleDiv">
+        <input type="hidden" value="1" id="CoverStyle" />
+        <div class="SelectStyleLi SelectCur" onClick="SelectCover(1)"><img src="./images/styleicon1.png" width="100%" style="display:block" /></div>
+        <div class="SelectStyleLi" onClick="SelectCover(2)"><img src="./images/styleicon2.png" width="100%" style="display:block"  /></div>
+        <div class="SelectStyleLi" onClick="SelectCover(3)"><img src="./images/styleicon3.png" width="100%"  style="display:block" /></div>
+        <div class="SelectStyleLi" onClick="SelectCover(4)" style="margin-right:0;"><img src="./images/styleicon4.png" width="100%" style="display:block"  /></div>
+        <div style="height:1px; overflow:hidden; clear:both;"></div>
+      </Div>
+      <form class="avatar-form" action="uploadFile.php" enctype="multipart/form-data" method="post" target="iframe">
+        <div style=" clear:both; overflow:hidden; margin:0 5%; padding-top:5px;  ">
+          <Div style=" width:40%; float:left; margin-left:5%; position:relative">
+            <input class="avatar-src" name="avatar_src" type="hidden" value="">
+            <input class="avatar-data" name="avatar_data" type="hidden" id="avatar_data" value="">
+            <img src="./images/uploadbtn.jpg" width="100%" >
+            <input class="avatar-input" id="avatarInput" name="avatar_file"    type="file" accept="image/*" style="display:block; position:absolute;left:0px; cursor:pointer; opacity:0;top:0;height:50px;z-index:10;width:100%;">
+          </Div>
+          <Div style="width:40%;  float:left; margin-left:5%"  id="download" ><img src="./images/savejpg.jpg" width="100%" ></Div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="PageDiv4" style="display:none; background:url(images/stylebg1.jpg) no-repeat left top; background-size:100% 100%; min-height:100%;">
+  <!--  <Div style="width:100%; overflow:hidden;" id="Page4Bg"><img src="./images/stylebg1.jpg" width="100%" style="display:block;" /></Div>-->
+  <div style="position:relative; left:0; top:0; z-index:1; width:100%;">
+    <div style=" width:100%; margin-left:auto; margin-right:auto; " id="CanvasResult"></div>
+    <!--    <div style="margin-top:10px;"><img src="./images/bowsertext.png" width="100%"></div>-->
+    <Div style="width:80%; margin-left:auto; margin-right:auto; overflow:hidden;">
+      <Div style=" width:48%; margin-right:2%; float:left; height:32px; position:relative;">
+        <div style="width:32px; line-height:30px; font-size:12px; position:absolute; left:0; top:0; font-weight:bold;">姓名</div>
+        <div style="margin-left:32px; border-bottom:1px solid rgba(0,0,0,0.2);">
+          <input type="text" id="userName" value="" style="width:100%; border:0; background:0; height:30px; line-height:30px; font-size:12px; color:#000;" />
+        </div>
+      </Div>
+      <Div style=" width:48%; margin-left:2%;float:left; height:32px; position:relative;">
+        <div style="width:32px; line-height:30px; font-size:12px; position:absolute; left:0; top:0; font-weight:bold;">手机</div>
+        <div style="margin-left:32px; border-bottom:1px solid rgba(0,0,0,0.2);">
+          <input type="tel" id="phone" value="" style="width:100%; border:0; background:0; height:30px; line-height:30px; font-size:12px; color:#000;" />
+        </div>
+      </Div>
+      <div style=" clear:both; overflow:hidden;  padding-top:10px; padding-bottom:12px;  ">
+        <Div style=" width:45%; float:left; margin-right:5%" onClick="EditCanvas()"><img src="./images/editbtn.png" width="100%" ></Div>
+        <Div style="width:45%;  float:left; margin-left:5%" onClick="submitData(event)"><img src="./images/submitbtn.png" width="100%" ></Div>
+      </div>
+    </Div>
+  </div>
+</div>
+<div class="popup" style="display: none;" onClick="$('.popup').hide()">
+  <div class="imgShow"><img src="./images/shoushi.png" width="100%"></div>
+</div>
+<div style="position:absolute; left:0; top:0; display:none;" id="IosCanvas">
+  <canvas id="resultCanvas2"></canvas>
+</div>
+<input type="hidden" value="0" id="IsUploadImage" />
+
+<script type="text/javascript">
+var loadI  =0;
+var styleValue = 1;
+var PAni = 0;
+var pon = true;
+var canvas640;
+function AnimateLoading(){
+		loadI++;
+		if(loadI == 7){
+			loadI = 0;
+		}
+		$(".PageUi1").hide();
+		$(".PageUi1").eq(loadI).show();
+	}
+
+function LoadInit(){
+	var Ww = $(window).width();
+	var EH = (Ww/640) *850;
+	$(".EditDiv,#img-container,#CanvasResult").css({width:Ww, height:EH});
+	$(".cropper-modal").css({width:Ww});
+
+
+}
+function SelectCover(index){
+	$(".cropper-modal").css({'background-image':'url(images/style'+index+'.png)'});
+	$(".SelectStyleLi").removeClass('SelectCur');
+	$(".SelectStyleLi").eq(index-1).addClass('SelectCur');
+	//$("#Page4Bg").html('<img src="{$static_path}images/stylebg'+index+'.jpg" width="100%" />');
+	//$(".PageDiv4").css({background:'url(images/stylebg'+index+'.jpg) no-repeat left top', 'background-size':'100% 100%'});
+	//$("#CoverStyle").val(index);
+	styleValue = index;
+}
+
+imageLoad( {
+		url:function(v){
+		v = [static_path+'images/p1.jpg',static_path+'images/p2.jpg',static_path+'images/p3.jpg',static_path+'images/p4.jpg',static_path+'images/p5.jpg',static_path+'images/p6.jpg',static_path+'images/p7.jpg',static_path+'images/close.png',static_path+'images/covergirlbtn.png',static_path+'images/editbtn.png',static_path+'images/followtxt.png',static_path+'images/gzh.png',static_path+'images/icon.jpg',static_path+'images/kv.jpg',static_path+'images/savejpg.jpg',static_path+'images/share.png',static_path+'images/startbtn.png',static_path+'images/style1.png',static_path+'images/style2.png',static_path+'images/style3.png',static_path+'images/style4.png',static_path+'images/stylebg1.jpg',static_path+'images/styleicon1.png',static_path+'images/styleicon2.png',static_path+'images/styleicon3.png',static_path+'images/styleicon4.png',static_path+'images/submitbtn.png',static_path+'images/uploadbtn.jpg'];
+				return v;
+		},
+		oncomplete: function(s){
+			var fid = parseInt((s.complete/s.total)*100);
+			if(fid > 20 && pon == true){
+					pon = false;
+					$(".PageDiv1").show();
+					PAni = setInterval(function(){AnimateLoading();},250);
+
+			}
+			$(".parentLoadingNumber").html(fid);
+
+		//	$('#status').html( '正在加载...'+s.complete+'/'+s.total);
+		//$('#processing').html(this.src);
+		},
+		complete:function(imgs, s){
+				loaded();
+			$(".loadingNum").hide();
+				Page2();
+				LoadInit()
+				$(".PageDiv1").hide();
+				$(".PageDiv3").hide();
+				$(".prizediv").css({height: ($(window).height()-20- 40 )})
+
+			/*setTimeout(function(){
+					Page2();
+
+				},1500);*/
+
+		}
+
+	});
+
+function Page2(){
+	if(PAni){clearInterval(PAni);}
+	$(".PageDiv1").hide();
+	$(".PageDiv2").show();
+	//$("#Page2Text").show();
+	//Page2Animate1();
+	var getWinw = $(window).width();
+	var divH =ReturnAP(getWinw);
+	$("#Page2ActionDiv").css({height:divH,width:getWinw});
+	var startBtn = {width:306,height:110,left:317,top:671};
+	$("#StartGameBtn").css({width:ReturnAPForWw(startBtn.width),height:ReturnAPForWw(startBtn.height),left:ReturnAPForWw(startBtn.left),top: ReturnAPForWw(startBtn.top)});
+	var BtnLeftTop = {width:265,height:78,left:28,top:354};
+	var BtnLeftBottom = {width:265,height:78,left:28,top:445};
+	var BtnRightTop = {width:242,height:88,left:380,top:354};
+	var BtnRightBottom= {width:208,height:88,left:414,top:460};
+	$("#BtnLeftTop").css({width:ReturnAPForWw(BtnLeftTop.width),height:ReturnAPForWw(BtnLeftTop.height),left:ReturnAPForWw(BtnLeftTop.left),top: ReturnAPForWw(BtnLeftTop.top)});
+	$("#BtnLeftBottom").css({width:ReturnAPForWw(BtnLeftBottom.width),height:ReturnAPForWw(BtnLeftBottom.height),left:ReturnAPForWw(BtnLeftBottom.left),top: ReturnAPForWw(BtnLeftBottom.top)});
+	$("#BtnRightTop").css({width:ReturnAPForWw(BtnRightTop.width),height:ReturnAPForWw(BtnRightTop.height),left:ReturnAPForWw(BtnRightTop.left),top: ReturnAPForWw(BtnRightTop.top)});
+	$("#BtnRightBottom").css({width:ReturnAPForWw(BtnRightBottom.width),height:ReturnAPForWw(BtnRightBottom.height),left:ReturnAPForWw(BtnRightBottom.left),top: ReturnAPForWw(BtnRightBottom.top)});
+}
+function ReturnAP(num){
+	return (num / 640) * 862
+}
+function ReturnAPForWw(num){
+	return (num / 640) * $(window).width();
+}
+
+
+var c = 0;
+/*function Page2Animate1(){
+		$("#Page2Text>div").eq(c).show().addClass("animated fadeInUp");
+		c++;
+		if(c == 5){
+
+			setTimeout(function(){Page2Animate2()},1200)
+			return;
+		}
+		setTimeout(function(){Page2Animate1()},500)
+}*/
+/*function Page2Animate2(){
+	$("#Page2Text").addClass("animated fadeOutUp");
+	setTimeout(function(){	$("#Page2Text").hide();$("#Page2BtnAll").show();
+	Page2Animate3();
+	},1200)
+}
+function Page2Animate3(){
+	$(".StartGameBtn").show().addClass("animated fadeInUpBig");
+	setTimeout(function(){
+		$("#BtnListID>.Btnlist").eq(0).show().addClass("animated bounceInLeft");
+		$("#BtnListID>.Btnlist").eq(1).show().addClass("animated bounceInUp");
+		$("#BtnListID>.Btnlist").eq(2).show().addClass("animated bounceInRight");
+	},800)
+}*/
+function StartGame(e){
+	//$(".PageDiv2").hide();
+	//$(".PageDiv3").css("opacity",1).show();
+	//$(".popup").show();
+	e.stopPropagation();
+
+}
+function EditCanvas(){
+		$(".PageDiv4").hide();
+		$(".PageDiv3").show();
+
+}
+function submitData(e){
+		e.stopPropagation();
+	if(canvas640 == ""){
+		alert('封面为空哦！');
+		return false;
+	}
+	var userName = $.trim($("#userName").val());
+	var phone = $.trim($("#phone").val());
+	if(userName == ""){
+		alert('姓名不能为空哦！');
+		return false;
+	}
+	if(phone == ""){
+		alert('手机不能为空哦！');
+		return false;
+	}
+	if(!checkMobile(phone)){
+		alert('手机号码不正确哦！');
+		return false;
+	}
+		$.ajax({
+				type:'post',
+				url:"upload.php",
+				dataType:"json",
+				data: {
+					userName: userName,
+					phone: phone,
+					data: canvas640
+				},
+                beforeSend:function(){
+                    $(".loading").show();
+                    $("#loadingtips").html("上传中...");
+                },
+				success: function(data) {
+                    $(".loading").hide();
+                    if(data.rsp){
+                       location.href="sharePage.php?id="+data.id+"&uid="+data.uid;
+                    }else{
+                        alert(data.errorMsg);
+                        return false;
+                    }
+				},
+				error: function(data) {}
+			});
+}
+
+function checkMobile(value){
+    if (value != "") {
+        var reg = /^1[3,4,5,7,8]{1}[0-9]{1}[0-9]{8}$/;
+        if (value.match(reg) == null) {
+            return false;
+        }
+    }
+    else {
+        return false;
+    }
+    return true;
+}
+	function loaded() {
+
+				myScroll = new iScroll('wrapperScroll', { useTransition:false });
+				myScroll2 = new iScroll('wrapperScroll2', { useTransition:false });
+		}
+
+	var myScroll, myScroll2;
+		function shareBox(class1,class2){
+
+			$(class1).show();
+			$(class2).animate({'bottom':'0'},800);
+			myScroll.refresh();
+			myScroll2.refresh();
+		}
+		function closeShare(class1,class2){
+			$(class2).animate({'bottom':-($(window).height()-20)},500,function(){$(class1).hide();});
+		}
+</script>
+<iframe name="iframe" style="display: none"></iframe>
+<div class="awardsOut" style="display: none; bottom: -500px;">
+  <div class="awardMain">
+    <div style="width:90%; margin: 0 auto; padding-bottom:100px;">
+      <div class="prizediv GzDiv1" style="overflow:auto; position: relative;" id="wrapperScroll">
+        <div id="scroller" style="position: relative; ">
+          <div style="height:40px; overflow:hidden;"></div>
+          <div style="font-size:16px; line-height:32px; font-weight:bold;">活动详情</div>
+          白衬衫宣言由巴黎河谷购物村发起，结合时尚与艺术的系列活动。<br>
+          <br>
+          河谷购物村是奕欧来EUOPRE九大精品购物村之一，荟集120多家法国本土乃至国际名牌精品店，购物村内亦有画廊定期举办艺术展。<br>
+          <br>
+          此次河谷购物村赞助法国女画家Vigée Le Brun在巴黎大皇宫的艺术大展，并发起白衬衫宣言，向这一经典的时尚元素致敬！<br>
+          <br>
+          奕欧来EUROPE是欧洲九大精品购物村，在英国、法国、意大利、爱尔兰、比利时、西班牙拥有近千家奢侈品牌精品店。每个购物村独具特色，并提供舒适贴心的服务，给你带来完美的购物之行。<br>
+        </div>
+      </div>
+    </div>
+    <div class="close"><a href="javascript:void(0)" onclick="closeShare('.awardsOut','.awardMain')"><img src="images/close.png" width="20px"></a></div>
+  </div>
+</div>
+<div class="awardsOut1" style="display: none; bottom: -500px;">
+  <div class="awardMain1">
+    <div style="width:90%; margin: 0 auto; padding-bottom:100px;">
+      <div class="prizediv GzDiv1" style="overflow:auto; position: relative;" id="wrapperScroll2">
+        <div id="scroller2" style="position: relative; ">
+          <div style="height:40px; overflow:hidden;"></div>
+          <div style="font-size:16px; line-height:32px; font-weight:bold;">活动规则</div>
+          1. 上传你最in的白衬衫造型<br>
+          2. 选择你最喜爱的杂志封面背景<br>
+          3. 生成你的白衬衫封面照<br>
+          <br>
+          我们将投票选出5位白衬衫优秀代言人，赢（品牌名）白衬衫一件！ </div>
+      </div>
+    </div>
+    <div class="close"><a href="javascript:void(0)" onclick="closeShare('.awardsOut1','.awardMain1')"><img src="images/close.png" width="20px"></a></div>
+  </div>
+</div>
+
+<div class="loading" style="display:none;">
+  <div class="loadBox"><span class="square"></span><span id="loadingtips" style="display:block; clear:both">提交数据中...</span></div>
+</div>
+
+<script type="text/javascript">
+
+function orient() {
+	if (window.orientation == 0 || window.orientation == 180) {
+
+				$("#waring").hide();
+
+			return false;
+	}
+	else if (window.orientation == 90 || window.orientation == -90) {
+
+				$("#waring").show();
+	return false;
+	}
+}
+
+</script>
+<div align="center" id="waring" style="display:none; background-color:rgba(0,0,0,0.9); position:absolute; width:100%; left:0; top:0; height:100%; z-index:100000;"><img src="./images/landscape.jpg?v=2015-9-30" width="130" style="top:50%; margin-top:-62px; position:absolute; left:50%; margin-left:-65px;" /></div>
+
+
+<script type="text/javascript">
+/* turn js*/  
+/*
+ * Turn.js responsive book
+ */
+ setTimeout(function(){
+  $('#Page2ActionDiv .book').turn({
+                    display: "single",
+
+      autoCenter: true
     });
-    wx.error(function(res) {
-      // alert(res.errMsg);
-    });
-  </script>
+
+ },1000)
+
+</script>
+
 </body>
-
 </html>
