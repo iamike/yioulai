@@ -372,6 +372,10 @@ imageLoad( {
 
 		//	$('#status').html( '正在加载...'+s.complete+'/'+s.total);
 		//$('#processing').html(this.src);
+
+
+
+    
 		},
 		complete:function(imgs, s){
 				loaded();
@@ -381,7 +385,11 @@ imageLoad( {
 				$(".PageDiv1").hide();
 				$(".PageDiv3").hide();
 				$(".prizediv").css({height: ($(window).height()-20- 40 )})
+  $('#Page2ActionDiv .book').turn({
+      display: "single",
 
+      autoCenter: true
+    });
 			/*setTimeout(function(){
 					Page2();
 
@@ -600,14 +608,8 @@ function orient() {
 /*
  * Turn.js responsive book
  */
- setTimeout(function(){
-  $('#Page2ActionDiv .book').turn({
-                    display: "single",
 
-      autoCenter: true
-    });
 
- },1000)
 
 </script>
 
