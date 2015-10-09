@@ -248,9 +248,22 @@ div.SelectCur{ box-shadow: 0 10px 8px #666; margin-top:-8px; }
         <div class="pos" id="BtnRightTop"></div>
         <div class="pos" id="BtnRightBottom" ></div>
       </div>
-      <div class="page"></div>
-      <div class="page"></div>
-      <div class="page"></div>      
+      <div class="page">
+        
+      <p>Text Demo</p>
+
+
+      </div>
+      <div class="page">
+      <p>Text Demo3</p>
+
+      </div>
+      <div class="page">
+        
+      <p>Text Demo4</p>
+
+
+      </div>      
     </div>
 
     
@@ -375,7 +388,7 @@ imageLoad( {
 
 
 
-    
+
 		},
 		complete:function(imgs, s){
 				loaded();
@@ -384,18 +397,21 @@ imageLoad( {
 				LoadInit()
 				$(".PageDiv1").hide();
 				$(".PageDiv3").hide();
-				$(".prizediv").css({height: ($(window).height()-20- 40 )})
-  $('#Page2ActionDiv .book').turn({
-      display: "single",
+				$(".prizediv").css({height: ($(window).height()-20- 40 )});
 
-      autoCenter: true
-    });
-			/*setTimeout(function(){
-					Page2();
+        //turn js init
 
-				},1500);*/
+        $('#Page2ActionDiv .book').turn({
+            display: "single",
 
-		}
+            autoCenter: true
+          });
+      			/*setTimeout(function(){
+      					Page2();
+
+      				},1500);*/
+
+      		}
 
 	});
 
@@ -603,15 +619,7 @@ function orient() {
 <div align="center" id="waring" style="display:none; background-color:rgba(0,0,0,0.9); position:absolute; width:100%; left:0; top:0; height:100%; z-index:100000;"><img src="./images/landscape.jpg?v=2015-9-30" width="130" style="top:50%; margin-top:-62px; position:absolute; left:50%; margin-left:-65px;" /></div>
 
 
-<script type="text/javascript">
-/* turn js*/  
-/*
- * Turn.js responsive book
- */
 
-
-
-</script>
 
 </body>
 </html>
