@@ -236,6 +236,13 @@ div.SelectCur{ box-shadow: 0 10px 8px #666; margin-top:-8px; }
     left: 0px;
     bottom: 30px;
   }
+.book .page .overlayText {
+   position: absolute;
+   left: 0px;
+   top:0px;
+   padding:30px;
+}
+
 </style>
 
 <div  class="loadingNum" style=" width:100px;   height:50px; position:fixed; left:50%; bottom:15%; margin-left:-50px;  font-size:14px; z-index:999; color:#171e26;  text-align:center; line-height:22px;"><span class="parentLoadingNumber">0</span>%<br>
@@ -250,59 +257,59 @@ div.SelectCur{ box-shadow: 0 10px 8px #666; margin-top:-8px; }
   <div class="PageUi1" style="display:none;"><img src="./images/p7.jpg" width="100%" /></div>
 </div>
 <div class="PageDiv2" style=" display:none; ">
-  <Div style="position:fixed; left:0; top:0; width:100%; z-index:0;"><img src="./images/stylebg1.jpg" width="100%" /></Div>
-  <div style="position:relative; left:0; top:0; z-index:1; width:100%;" id="Page2ActionDiv">
-    <div class="book">
-
-      <div class="page">
-        <img src="./images/kv.jpg" width="100%" />
-        <div class="pos" id="StartGameBtn" onClick="StartGame(event)"></div>
-        <div class="pos" id="BtnLeftTop" onClick="$book.turn('disable', false).turn('page',3).turn('disable',true);
-"></div>
-        <div class="pos" id="BtnLeftBottom" onClick="$book.turn('disable', false).turn('page',4).turn('disable',true);
-"></div>
-        <div class="pos" id="BtnRightTop"></div>
-        <div class="pos" id="BtnRightBottom" ></div>
-      </div>
-      <div class="page">
-      <p>Text Demo</p>
-      <p>Text Demo</p>
-      <p>Text Demo</p>
-      <p>Text Demo</p>
-            <div class="tag" onclick="backTag(1)">返回</div>
-
-      </div>
-      <div class="page">
-          <div style="font-size:16px; line-height:32px; font-weight:bold;">活动详情</div>
-          白衬衫宣言由巴黎河谷购物村发起，结合时尚与艺术的系列活动。<br>
-          <br>
-          河谷购物村是奕欧来EUOPRE九大精品购物村之一，荟集120多家法国本土乃至国际名牌精品店，购物村内亦有画廊定期举办艺术展。<br>
-          <br>
-          此次河谷购物村赞助法国女画家Vigée Le Brun在巴黎大皇宫的艺术大展，并发起白衬衫宣言，向这一经典的时尚元素致敬！<br>
-          <br>
-          奕欧来EUROPE是欧洲九大精品购物村，在英国、法国、意大利、爱尔兰、比利时、西班牙拥有近千家奢侈品牌精品店。每个购物村独具特色，并提供舒适贴心的服务，给你带来完美的购物之行。<br>
-            <div class="tag" onclick="backTag(1)">返回</div>
-
-      </div>
-      <div class="page">
-        
-          <div style="font-size:16px; line-height:32px; font-weight:bold;">活动规则</div>
-          1. 上传你最in的白衬衫造型<br>
-          2. 选择你最喜爱的杂志封面背景<br>
-          3. 生成你的白衬衫封面照<br>
-          <br>
-          我们将投票选出5位白衬衫优秀代言人，赢（品牌名）白衬衫一件！
-            <div class="tag" onclick="backTag(1)">返回</div>
-
-
-      </div>      
+    <Div style="position:fixed; left:0; top:0; width:100%; z-index:0;"><img src="./images/stylebg1.jpg" width="100%" /></Div>
+    <div style="position:relative; left:0; top:0; z-index:1; width:100%;" id="Page2ActionDiv">
+        <div class="book">
+            <div class="page">
+                <img src="./images/kv.jpg" width="100%" />
+                <div class="pos" id="StartGameBtn" onClick="StartGame(event)"></div>
+                <div class="pos" id="BtnLeftTop" onClick="$book.turn('disable', false).turn('page',3).turn('disable',true);"></div>
+                <div class="pos" id="BtnLeftBottom" onClick="$book.turn('disable', false).turn('page',4).turn('disable',true);"></div>
+                <div class="pos" id="BtnRightTop"></div>
+                <div class="pos" id="BtnRightBottom"></div>
+            </div>
+            <div class="page">
+                <img src="./images/blankPage.jpg" width="100%" />
+                <div class="overlayText">
+                    <p>Text Demo</p>
+                    <p>Text Demo</p>
+                    <p>Text Demo</p>
+                    <p>Text Demo</p>
+                </div>
+                <div class="tag" onclick="backTag(1)">返回</div>
+            </div>
+            <div class="page detail">
+                <img src="./images/blankPage.jpg" width="100%" />
+                <div class="overlayText">
+                    <div style="font-size:16px; line-height:32px; font-weight:bold;">活动详情</div>
+                    白衬衫宣言由巴黎河谷购物村发起，结合时尚与艺术的系列活动。
+                    <br>
+                    <br> 河谷购物村是奕欧来EUOPRE九大精品购物村之一，荟集120多家法国本土乃至国际名牌精品店，购物村内亦有画廊定期举办艺术展。
+                    <br>
+                    <br> 此次河谷购物村赞助法国女画家Vigée Le Brun在巴黎大皇宫的艺术大展，并发起白衬衫宣言，向这一经典的时尚元素致敬！
+                    <br>
+                    <br> 奕欧来EUROPE是欧洲九大精品购物村，在英国、法国、意大利、爱尔兰、比利时、西班牙拥有近千家奢侈品牌精品店。每个购物村独具特色，并提供舒适贴心的服务，给你带来完美的购物之行。
+                    <br>
+                </div>
+                <div class="tag" onclick="backTag(1)">返回</div>
+            </div>
+            <div class="page rule">
+                <img src="./images/blankPage.jpg" width="100%" />
+                <div class="overlayText">
+                    <div style="font-size:16px; line-height:32px; font-weight:bold;">活动规则</div>
+                    1. 上传你最in的白衬衫造型
+                    <br> 2. 选择你最喜爱的杂志封面背景
+                    <br> 3. 生成你的白衬衫封面照
+                    <br>
+                    <br> 我们将投票选出5位白衬衫优秀代言人，赢（品牌名）白衬衫一件！
+                </div>
+                <div class="tag" onclick="backTag(1)">返回</div>
+            </div>
+        </div>
     </div>
-
-    
-
-  </div>
-  <div style="padding-top:5px; position:relative; z-index:1;"><img src="./images/europelogo.png" width="100%" /></div>
+    <div style="padding-top:5px; position:relative; z-index:1;"><img src="./images/europelogo.png" width="100%" /></div>
 </div>
+
 <div class="PageDiv3" style=" opacity:0; min-height:100%;">
 	<Div style="position:fixed; left:0; top:0; width:100%; z-index:0;"><img src="./images/stylebg1.jpg" width="100%" /></Div>
   <div style="position:relative; left:0; top:0; z-index:1; width:100%;">
