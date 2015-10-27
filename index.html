@@ -498,9 +498,9 @@ function Page2(){
 
 $("#StartGameBtn img").addClass('animated pulse infinite');
 var blinkItem = $('.pos img').not('#StartGameBtn img');
-blinkItem.on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-  blinkItem.removeClass('animated pulse');
-});
+// blinkItem.on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+//   blinkItem.removeClass('animated pulse');
+// });
 
 
 var lastRandom;
@@ -508,6 +508,8 @@ var lastRandom;
 setInterval(function(){
   var min = 0;
   var max = 3;
+  blinkItem.removeClass('animated pulse');
+
   if (lastRandom === undefined) {
       random = Math.floor(Math.random() * (max - min + 1)) + min;
   }
