@@ -2,7 +2,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
   border: none;
   margin: 0;
   padding: 0;
-  border: 0;
+  border: 0; 
   font-weight: inherit;
   font-style: inherit;
   font-size: 100%;
@@ -3039,6 +3039,34 @@ div.animateDown {
   -webkit-animation-name: zoomOutUp;
   animation-name: zoomOutUp
 }
+
+@-webkit-keyframes cornerAnim {
+  0%, 100%, 50% {
+    width: 55px;
+    height:55px;
+  }
+  25%, 75% {
+    width: 33px;
+    height:33px;
+  }
+}
+@keyframes cornerAnim {
+  0%, 100%, 50% {
+    width: 55px;
+    height:55px;
+  }
+  25%, 75% {
+    width: 33px;
+    height:33px;
+  }
+}
+.cornerAnim {
+  -webkit-animation-name: cornerAnim;
+  animation-name: cornerAnim;
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+}
+
 * {
   -webkit-text-size-adjust: none;
 }
@@ -3113,15 +3141,15 @@ div.animateDown {
 .loadingNum {
   width:100px;   height:50px; position:fixed; left:50%; bottom:15%; margin-left:-50px;  font-size:14px; z-index:999; color:#171e26;  text-align:center; line-height:22px;
 }
-#BtnLeftTop {
-
+#BtnLeftTop img,
+#BtnLeftBottom img,
+#BtnRightTop img,
+#BtnRightBottom img,
+#StartGameBtn img{
+  position: relative;
 }
-#BtnLeftBottom {
-
-}
-#BtnRightTop {
-
-}
-#BtnRightBottom{
-
+#BtnLeftTop img,
+#BtnLeftBottom img,
+#BtnRightTop img,
+#BtnRightBottom img {
 }

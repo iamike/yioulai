@@ -22,8 +22,7 @@ document.oncontextmenu=new Function('event.returnValue=true;');
 document.onselectstart=new Function('event.returnValue=true;');
 -->
   </SCRIPT>
-<link href="./style/global.css?v=2015-9-30" type="text/css" rel="stylesheet">
-<link href="./style/animate.min.css" rel="stylesheet" type="text/css">
+  <link href="./style/global.css?v=2015-9-30" type="text/css" rel="stylesheet">
 <link href="./js/assets/css/cropper.min.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="./js/jquery.min.js"></script>
 <script type="text/javascript" src="./js/megapix-image.js"></script>
@@ -229,13 +228,16 @@ div.SelectCur{ box-shadow: 0 10px 8px #666; margin-top:-8px; }
   font-size: 2em;
 }
 .book .page .tag {
-    background-color: rgba(239, 49, 83, 0.86);
-    width: 33px;
+    background: transparent url(images/pageCorner.png) no-repeat scroll left top;
+    background-size: contain;
+    width: 32px;
+    height:32px;
     color: #fff;
     padding: 8px;
     position: absolute;
-    left: 0px;
-    bottom: 30px;
+    right: 10px;
+    bottom: 16px;
+    padding: 0px;
   }
 .book .page .overlayText {
    position: absolute;
@@ -264,20 +266,20 @@ div.SelectCur{ box-shadow: 0 10px 8px #666; margin-top:-8px; }
             <div class="page">
                 <img src="./images/kv.jpg" width="100%" />
                 <div class="pos" id="StartGameBtn" onClick="StartGame(event)">
-                  <img src="./images/btnRedAction.png" />
+                  <img src="./images/btnRedAction.png"  />
                 </div>
                 <div class="pos" id="BtnLeftTop" onClick="$book.turn('disable', false).turn('page',3).turn('disable',true);">
-                  <img src="./images/btnLT.png" />
+                  <img src="./images/btnLT.png"/>
                 </div>
                 <div class="pos" id="BtnLeftBottom" onClick="$book.turn('disable', false).turn('page',4).turn('disable',true);">
-                  <img src="./images/btnLB.png" />
+                  <img src="./images/btnLB.png"/>
                 </div>
                 <div class="pos" id="BtnRightTop">
-                  <img src="./images/btnRT.png" />
+                  <img src="./images/btnRT.png"/>
 
                 </div>
                 <div class="pos" id="BtnRightBottom">
-                  <img src="./images/btnRB.png" />
+                  <img src="./images/btnRB.png"/>
                 </div>
             </div>
             <div class="page">
@@ -288,7 +290,7 @@ div.SelectCur{ box-shadow: 0 10px 8px #666; margin-top:-8px; }
                     <p>Text Demo</p>
                     <p>Text Demo</p>
                 </div>
-                <div class="tag" onclick="backTag(1)">返回</div>
+                <div class="tag cornerAnim animated cornerAnim infinite " onclick="backTag(1)"></div>
             </div>
             <div class="page detail">
                 <img src="./images/blankPage.jpg" width="100%" />
@@ -303,7 +305,7 @@ div.SelectCur{ box-shadow: 0 10px 8px #666; margin-top:-8px; }
                     <br> 奕欧来EUROPE是欧洲九大精品购物村，在英国、法国、意大利、爱尔兰、比利时、西班牙拥有近千家奢侈品牌精品店。每个购物村独具特色，并提供舒适贴心的服务，给你带来完美的购物之行。
                     <br>
                 </div>
-                <div class="tag" onclick="backTag(1)">返回</div>
+                <div class="tag cornerAnim animated cornerAnim infinite " onclick="backTag(1)"></div>
             </div>
             <div class="page rule">
                 <img src="./images/blankPage.jpg" width="100%" />
@@ -315,7 +317,7 @@ div.SelectCur{ box-shadow: 0 10px 8px #666; margin-top:-8px; }
                     <br>
                     <br> 我们将投票选出5位白衬衫优秀代言人，赢（品牌名）白衬衫一件！
                 </div>
-                <div class="tag" onclick="backTag(1)">返回</div>
+                <div class="tag cornerAnim animated cornerAnim infinite " onclick="backTag(1)"></div>
             </div>
         </div>
     </div>
@@ -457,14 +459,14 @@ imageLoad( {
 
        $book = $('#Page2ActionDiv .book').turn({
             display: "single",
-            autoCenter: true
+            autoCenter: true,
+            turnCorners: "bl,br"
           });
       			/*setTimeout(function(){
       					Page2();
-
+turn("peel", "br")
       				},1500);*/
         $book.turn("disable", true);
-
       		}
 
 	});
@@ -480,23 +482,53 @@ function Page2(){
 	$("#Page2ActionDiv").css({height:divH,width:getWinw});
 	var startBtn = {width:306,height:110,left:317,top:671};
 	$("#StartGameBtn").css({width:ReturnAPForWw(startBtn.width),height:ReturnAPForWw(startBtn.height),left:ReturnAPForWw(startBtn.left),top: ReturnAPForWw(startBtn.top)});
-	var BtnLeftTop = {width:265,height:78,left:28,top:354};
-	var BtnLeftBottom = {width:265,height:78,left:28,top:445};
-	var BtnRightTop = {width:242,height:88,left:380,top:354};
-	var BtnRightBottom= {width:208,height:88,left:414,top:460};
+	var BtnLeftTop = {width:125*2,height:29*2,left:16*2,top:179*2};//width: 125px;    height: 29px;left: 16px;top: 179px
+	var BtnLeftBottom = {width:265,height:48,left:28,top:445};
+	var BtnRightTop = {width:242,height:66,left:206*2,top:182*2};
+	var BtnRightBottom= {width:108,height:66,left:496,top:460};
 
-	$("#BtnLeftTop").css({width:ReturnAPForWw(BtnLeftTop.width),height:ReturnAPForWw(BtnLeftTop.height),left:ReturnAPForWw(BtnLeftTop.left),top: ReturnAPForWw(BtnLeftTop.top)});
-	$("#BtnLeftBottom").css({width:ReturnAPForWw(BtnLeftBottom.width),height:ReturnAPForWw(BtnLeftBottom.height),left:ReturnAPForWw(BtnLeftBottom.left),top: ReturnAPForWw(BtnLeftBottom.top)});
-	$("#BtnRightTop").css({width:ReturnAPForWw(BtnRightTop.width),height:ReturnAPForWw(BtnRightTop.height),left:ReturnAPForWw(BtnRightTop.left),top: ReturnAPForWw(BtnRightTop.top)});
-	$("#BtnRightBottom").css({width:ReturnAPForWw(BtnRightBottom.width),height:ReturnAPForWw(BtnRightBottom.height),left:ReturnAPForWw(BtnRightBottom.left),top: ReturnAPForWw(BtnRightBottom.top)});
+	$("#BtnLeftTop")
+    .css({width:ReturnAPForWw(BtnLeftTop.width),height:ReturnAPForWw(BtnLeftTop.height),left:ReturnAPForWw(BtnLeftTop.left),top: ReturnAPForWw(BtnLeftTop.top)});
+	$("#BtnLeftBottom")
+    .css({width:ReturnAPForWw(BtnLeftBottom.width),height:ReturnAPForWw(BtnLeftBottom.height),left:ReturnAPForWw(BtnLeftBottom.left),top: ReturnAPForWw(BtnLeftBottom.top)});
+	$("#BtnRightTop")
+    .css({width:ReturnAPForWw(BtnRightTop.width),height:ReturnAPForWw(BtnRightTop.height),left:ReturnAPForWw(BtnRightTop.left),top: ReturnAPForWw(BtnRightTop.top)});
+	$("#BtnRightBottom")
+    .css({width:ReturnAPForWw(BtnRightBottom.width),height:ReturnAPForWw(BtnRightBottom.height),left:ReturnAPForWw(BtnRightBottom.left),top: ReturnAPForWw(BtnRightBottom.top)});
 
-  setTimeout(function(){
+$("#StartGameBtn img").addClass('animated pulse infinite');
+var blinkItem = $('.pos img').not('#StartGameBtn img');
+blinkItem.on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+  blinkItem.removeClass('animated pulse');
+});
 
-    $("#BtnLeftTop").addClass('teda animated');
-    $("#BtnLeftBottom").addClass('teda animated');
-	   $("#BtnRightTop").addClass('teda animated');
-     $("#BtnRightBottom").addClass('teda animated');
-  },5000);
+
+var lastRandom;
+
+setInterval(function(){
+  var min = 0;
+  var max = 3;
+  if (lastRandom === undefined) {
+      random = Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  else {
+      random = Math.floor(Math.random() * (max - min    )) + min;
+      if (random >= lastRandom) random += 1;
+  }
+  lastRandom = random;
+  blinkItem.eq(lastRandom).addClass('animated pulse');
+  if (lastRandom+1 == 4){
+    blinkItem.eq(0).addClass('animated pulse');
+  } else {
+    blinkItem.eq(lastRandom+1).addClass('animated pulse');
+  }
+  //console.log(lastRandom);
+
+},1000);
+
+
+
+
 
 
 }
