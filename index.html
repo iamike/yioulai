@@ -498,7 +498,7 @@ function Page2(){
 
 $("#StartGameBtn img").addClass('animated pulse infinite');
 var blinkItem = $('.pos img').not('#StartGameBtn img');
-blinkItem.on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+blinkItem.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
   blinkItem.removeClass('animated pulse');
 });
 
